@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :itineraries, only: [:index, :show]
 
-  resources :points, only:[] do
+  resources :steps, only:[] do
     resources :favorites, only: [:create, :destroy]
   end
 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
         patch :share
       end
 
-      resources :points, only: [:create, :update, :destroy]
+      resources :steps, only: [:create, :update, :destroy]
     end
 
     resources :favorites, only: [:index, :destroy] do
