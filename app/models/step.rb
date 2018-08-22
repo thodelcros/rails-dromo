@@ -1,7 +1,7 @@
 class Step < ApplicationRecord
   # à décommenter quand tu fais le setup de geocoder
-  # geocoded_by :city_with_country
-
+  geocoded_by :city_with_country
+  after_create :geocode
   extend Enumerize
 
   belongs_to :itinerary
@@ -13,7 +13,7 @@ class Step < ApplicationRecord
 
 
   # à décommenter quand tu fais le setup de geocoder
-  # def city_with_country
-  #   "#{self.city}, #{self.itinerary.country}"  # => "Buenos Aires, Argentina"
-  # end
+ def city_with_country
+   "#{self.city}, #{self.itinerary.country}"  # => "Buenos Aires, Argentina"
+  end
 end

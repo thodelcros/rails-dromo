@@ -7,9 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "destroying all database..."
 
+Photo.destroy_all
 Step.destroy_all
-Itinary.destroy_all
-Users.destroy_all
+Itinerary.destroy_all
+User.destroy_all
 
 
 puts "creating users..."
@@ -18,41 +19,41 @@ jeremy = User.create!(
   name: "jeremyls",
   email: "jeremy@email.com",
   password: "azerty",
-  photo: File.open(Rails.root.join("db/fixtures/pictures/users/jeremy.png")),
-  description: "I am Jeremy, I was travelling alone for months in this incredible country. We met so much new friends, argentina girls are wonderful !"
+  photo: File.open(Rails.root.join("db/fixtures/users/jeremy.png")),
+  bio: "I am Jeremy, I was travelling alone for months in this incredible country. We met so much new friends, argentina girls are wonderful !"
   )
 
 thomas = User.create!(
   name: "thomasd",
   email: "thomas@email.com",
   password: "azerty",
-  photo: File.open(Rails.root.join("db/fixtures/pictures/users/thomas.jpg")),
-  description: "Thomas, 23 years old. I travelled with friends for this south america trip and it was definetly one of my best experience !"
+  photo: File.open(Rails.root.join("db/fixtures/users/thomas.jpg")),
+  bio: "Thomas, 23 years old. I travelled with friends for this south america trip and it was definetly one of my best experience !"
   )
 
 renaud = User.create!(
   name: "renauds",
   email: "renaud@email.com",
   password: "azerty",
-  photo: File.open(Rails.root.join("db/fixtures/pictures/users/renaud.jpeg")),
-  description: "Renaud. I was alone with my seven children in this huge country, It was an amazing challenge. I think we will now live in Argentina ! One of my best experience."
+  photo: File.open(Rails.root.join("db/fixtures/users/renaud.jpeg")),
+  bio: "Renaud. I was alone with my seven children in this huge country, It was an amazing challenge. I think we will now live in Argentina ! One of my best experience."
   )
 
 camille = User.create!(
   name: "camillelb",
   email: "camille@email.com",
   password: "azerty",
-  photo: File.open(Rails.root.join("db/fixtures/pictures/users/camille.jpg")),
-  description: "My name is Camille, we travelled for a few weeks with my boyfriend in Argentina and it was amazing, people are great !"
+  photo: File.open(Rails.root.join("db/fixtures/users/camille.jpg")),
+  bio: "My name is Camille, we travelled for a few weeks with my boyfriend in Argentina and it was amazing, people are great !"
   )
 
-puts "creating itinaries..."
+puts "creating itineraries..."
 
 puts "Creating first itinary for user #{camille.name}..."
 
-itinary1 = Itinary.create!(
+itinerary1 = Itinerary.create!(
   owner: camille,
-  duration: 60,
+  duration_in_days: 60,
   country: 'Argentina',
   transportation: 'bus',
   start_date: Date.new(2017, 8, 12),
@@ -61,7 +62,7 @@ itinary1 = Itinary.create!(
 )
 
 step1 = Step.create!(
-  itinerary: itinary1,
+  itinerary: itinerary1,
   title: 'Buenos Aires La Boca',
   description: 'We loved the colored streets of this neiborghood of Buenos Aires, this is THE neiborghood of Maradona!',
   category: 'vantage point',
@@ -73,7 +74,7 @@ Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/buenos-aires2.jpeg")), step: step1)
 
 step2 = Step.create!(
-  itinerary: itinary1,
+  itinerary: itinerary1,
   title: 'Bahia Blanca party !',
   description: 'Wonderful seaside resort to party on the beach and meet young Argentineans',
   category: 'party',
@@ -85,7 +86,7 @@ Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/bahia-blanca2.jpeg")), step: step2)
 
 step3 = Step.create!(
-  itinerary: itinary1,
+  itinerary: itinerary1,
   title: 'El Condor',
   description: 'Thousands of parrots clinging to cliffs, very impressive.',
   category: 'vantage point',
@@ -97,7 +98,7 @@ Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/el-condor2.jpeg")), step: step3)
 
 step4 = Step.create!(
-  itinerary: itinary1,
+  itinerary: itinerary1,
   title: 'Peninsula Valdes',
   description: 'Orcas attack on the beach, amazing !',
   category: 'nature',
@@ -106,15 +107,15 @@ step4 = Step.create!(
 )
 
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/puerto-madryn.jpeg")), step: step4)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/puerto-madryn2.jpeg")), step: step4)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/puerto-madryn2.jpeg")), step: step4)
 
 
 puts "Creating first itinary for user #{jeremy.name}..."
 
 
-itinary2 = Itinary.create!(
+itinerary2 = Itinerary.create!(
   owner: jeremy,
-  duration: 30,
+  duration_in_days: 30,
   country: 'Argentina',
   transportation: 'hitchhiking',
   start_date: Date.new(2017, 2, 20),
@@ -123,7 +124,7 @@ itinary2 = Itinary.create!(
 )
 
 step1 = Step.create!(
-  itinerary: itinary2,
+  itinerary: itinerary2,
   title: 'Rio Gallegos',
   description: 'Last city of Argentina before the Tierra del Fuego, it was great to meet some people with whom to start this long trip in the Tierra del Fuego!',
   category: 'party',
@@ -134,7 +135,7 @@ step1 = Step.create!(
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-2/rio-gallegos.jpeg")), step: step1)
 
 step2 = Step.create!(
-  itinerary: itinary2,
+  itinerary: itinerary2,
   title: 'Rio Grande',
   description: 'Industrial city of Tierra del Fuego, do not bother to stay more than one night!',
   category: 'vantage point',
@@ -145,7 +146,7 @@ step2 = Step.create!(
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-2/rio-grande.jpeg")), step: step2)
 
 step3 = Step.create!(
-  itinerary: itinary2,
+  itinerary: itinerary2,
   title: 'Tolhuin',
   description: 'Cute town in the center of the Tierra del Fuego, nice to chill with friends a week.',
   category: 'vantage point',
@@ -156,7 +157,7 @@ step3 = Step.create!(
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-2/tolhuin.jpeg")), step: step3)
 
 step4 = Step.create!(
-  itinerary: itinary2,
+  itinerary: itinerary2,
   title: 'Ushuaïa',
   description: 'Mythical city surfing on its status of city of "the world\'s end", the train of the end of the world is a must!',
   category: 'nature',
@@ -167,7 +168,7 @@ step4 = Step.create!(
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-2/ushuaia.jpeg")), step: step4)
 
 step5 = Step.create!(
-  itinerary: itinary2,
+  itinerary: itinerary2,
   title: 'Parque national Tierra del Fuego',
   description: 'The park tours are really cool! Great to spend two or three days there.',
   category: 'sport',
@@ -181,9 +182,9 @@ Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-
 puts "Creating first itinary for user #{camille.name}..."
 
 
-itinary3 = Itinary.create!(
+itinerary3 = Itinerary.create!(
   owner: camille,
-  duration: 20,
+  duration_in_days: 20,
   country: 'Argentina',
   transportation: 'car',
   start_date: Date.new(2018, 3, 7),
@@ -192,7 +193,7 @@ itinary3 = Itinary.create!(
 )
 
 step1 = Step.create!(
-  itinerary: itinary3,
+  itinerary: itinerary3,
   title: 'Torres del Paine',
   description: 'Huge mountains and light blue icebergs. Amazing!',
   category: 'nature',
@@ -203,7 +204,7 @@ step1 = Step.create!(
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-3/cancha-carrera.jpeg")), step: step1)
 
 step2 = Step.create!(
-  itinerary: itinary3,
+  itinerary: itinerary3,
   title: 'El Calafate Glaciarium',
   description: 'Very interesting museum to introduce all the glaciers in the area',
   category: 'vantage point',
@@ -214,7 +215,7 @@ step2 = Step.create!(
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-3/el-calafate.jpeg")), step: step2)
 
 step3 = Step.create!(
-  itinerary: itinary3,
+  itinerary: itinerary3,
   title: 'Restaurante Ahonikenk El Chaltén',
   description: 'Super restaurant in a small wooden cabin.',
   category: 'food',
@@ -225,7 +226,7 @@ step3 = Step.create!(
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-3/el-chalten.jpeg")), step: step3)
 
 step4 = Step.create!(
-  itinerary: itinary3,
+  itinerary: itinerary3,
   title: 'Perito Moreno',
   description: 'A breathtaking view of the most mythical glacier in the world!!',
   category: 'vantage point',
@@ -239,9 +240,9 @@ Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-
 puts "Creating first itinary for user #{thomas.name}..."
 
 
-itinary4 = Itinary.create!(
+itinerary4 = Itinerary.create!(
   owner: thomas,
-  duration: 20,
+  duration_in_days: 20,
   country: 'Argentina',
   transportation: 'bus',
   start_date: Date.new(2017, 4, 18),
@@ -250,7 +251,7 @@ itinary4 = Itinary.create!(
 )
 
 step1 = Step.create!(
-  itinerary: itinary4,
+  itinerary: itinerary4,
   title: 'El Bolsón',
   description: 'A very picturesque little village, ideal for staying there for several days.',
   category: 'nature',
@@ -262,7 +263,7 @@ Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-4/el-bolson2.jpeg")), step: step1)
 
 step2 = Step.create!(
-  itinerary: itinary4,
+  itinerary: itinerary4,
   title: 'Parque national Nahuel Huapi',
   description: 'The most beautiful park in the world, my favorite!',
   category: 'vantage point',
@@ -270,12 +271,10 @@ step2 = Step.create!(
   rating: 5
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-4/san-carlos-de-bariloche.jpeg")), step: step2)
 
 step3 = Step.create!(
-  itinerary: itinary4,
+  itinerary: itinerary4,
   title: 'San Martín de los Andes',
   description: 'Small tourist town, top to relax!',
   category: 'nature',
@@ -286,7 +285,7 @@ step3 = Step.create!(
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-4/san-martin.jpeg")), step: step3)
 
 step4 = Step.create!(
-  itinerary: itinary4,
+  itinerary: itinerary4,
   title: 'Mendoza',
   description: 'Great restaurant, ideal for drinking the best Argentine wines and eating an asado!',
   category: 'food',
@@ -297,7 +296,7 @@ step4 = Step.create!(
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-4/mendoza.jpeg")), step: step4)
 
 step5 = Step.create!(
-  itinerary: itinary4,
+  itinerary: itinerary4,
   title: 'Pueblo Estancia La Paz',
   description: 'Very relaxing hotel belonging to the former Argentine president. Great but not cheap!',
   category: 'housing',
@@ -311,9 +310,9 @@ Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-
 puts "Creating first itinary for user #{jeremy.name}..."
 
 
-itinary5 = Itinary.create!(
+itinerary5 = Itinerary.create!(
   owner: jeremy,
-  duration: 15,
+  duration_in_days: 15,
   country: 'Argentina',
   transportation: 'train',
   start_date: Date.new(2018, 7, 3),
@@ -322,7 +321,7 @@ itinary5 = Itinary.create!(
 )
 
 step1 = Step.create!(
-  itinerary: itinary5,
+  itinerary: itinerary5,
   title: 'Parque Provincial Ischigualasto',
   description: 'It looks like the moon!',
   category: 'nature',
@@ -334,7 +333,7 @@ Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-5/amana2.jpeg")), step: step1)
 
 step2 = Step.create!(
-  itinerary: itinary5,
+  itinerary: itinerary5,
   title: 'El Cafayate',
   description: 'The famous seven-color mountain!',
   category: 'vantage point',
@@ -346,7 +345,7 @@ Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-5/el-cafayate2.jpeg")), step: step2)
 
 step3 = Step.create!(
-  itinerary: itinary5,
+  itinerary: itinerary5,
   title: 'National Park Los Cardones',
   description: 'Cactus more than 10 meters long and several hundred years old. It\'s awesome!',
   category: 'nature',
@@ -356,10 +355,10 @@ step3 = Step.create!(
 
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-5/jujuy.jpeg")), step: step3)
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-5/jujuy2.jpeg")), step: step3)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-/jujuy3.jpeg")), step: step3)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-5/jujuy3.jpeg")), step: step3)
 
 step4 = Step.create!(
-  itinerary: itinary5,
+  itinerary: itinerary5,
   title: 'Salta La Linda',
   description: 'Salta La Linda, great place to party and meet other travelers before Bolivia!',
   category: 'party',
@@ -373,9 +372,9 @@ Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-
 puts "Creating first itinary for user #{renaud.name}..."
 
 
-itinary6 = Itinary.create!(
+itinerary6 = Itinerary.create!(
   owner: renaud,
-  duration: 7,
+  duration_in_days: 7,
   country: 'Argentina',
   transportation: 'car',
   start_date: Date.new(2017, 11, 20),
@@ -384,7 +383,7 @@ itinary6 = Itinary.create!(
 )
 
 step1 = Step.create!(
-  itinerary: itinary6,
+  itinerary: itinerary6,
   title: 'Puerto Iguazú',
   description: 'A small atypical restaurant at the edge of the waterfalls',
   category: 'food',
@@ -395,7 +394,7 @@ step1 = Step.create!(
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-6/puerto-iguazu.jpeg")), step: step1)
 
 step2 = Step.create!(
-  itinerary: itinary6,
+  itinerary: itinerary6,
   title: 'Parque Nacional Iguazú',
   description: 'Incredible, to do absolutely!',
   category: 'nature',
@@ -407,7 +406,7 @@ Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-6/puerto-libertad2.jpeg")), step: step2)
 
 step3 = Step.create!(
-  itinerary: itinary6,
+  itinerary: itinerary6,
   title: 'Parque Iberá',
   description: 'Park full of swamps, impressive!',
   category: 'nature',
