@@ -1,9 +1,11 @@
-// FORM LOGIN
+// FORM DEVISE
 .form-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
   background-color: white;
   border-radius: 34px;
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 20%;
+  margin-right: 20%;
   padding:30px;
 }
 
@@ -19,10 +21,42 @@
   }
   .btn {
     width: 100%;
-    margin-bottom: 20px
+    margin-bottom: 20px;
   }
+}
+
+.form-control-label {
+  font-weight: lighter;
+}
+
+.form-actions .btn {
+  border-radius: 24px;
+  background-color: #011638;
+  color: #FAE5BA;
+  &:hover {
+    background-color: #F0A202;
+    color: #011638;
+    transition: 0.5s;
+  }
+}
+
+#user_remember_me {
+  margin-right: 10px;
+}
+
+.form-check-label{
+  font-weight: lighter;
+  padding-bottom: 0;
 }
 
 .form-links {
   padding-top: 20px;
+  a {
+    color: #011638;
+    &:hover {
+      color: #F0A202;
+      text-decoration: none;
+      transition: 0.4s;
+    }
+  }
 }
