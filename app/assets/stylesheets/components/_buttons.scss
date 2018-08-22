@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all .5s ease;
   p {
     font-family: $headers-font;
     color: white;
@@ -27,4 +28,11 @@
 
 #orange {
   background-color: $main-orange;
+}
+
+.colors-inversed {
+  background-color: white !important;
+  i, p {
+    color: $main-orange !important;
+  }
 }
