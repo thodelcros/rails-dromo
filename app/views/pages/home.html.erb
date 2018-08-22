@@ -3,10 +3,31 @@
 
   </div>
   <div class="home-header">
-
+    <div class="header-content">
+      <h1>Get inspiration for your travels</h1>
+      <h2 class="subtitle">Discover amazing itineraries from <br>travelers' experiences</br></h2>
+      <div class="header-buttons">
+        <button class="button-dromo">
+          <i class="far fa-compass"></i>
+          <p>Create</p>
+        </button>
+        <div class="search-home">
+          <input type="text" placeholder="Type a country">
+          <button class="button-dromo" id="orange">
+            <i class="fas fa-search"></i>
+            <p>Search</p>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="header-zeppelin">
+      <%= render "shared/zeppelin" %>
+    </div>
   </div>
   <div class="home-cards">
 
   </div>
 </div>
 
+<%# javascript_tag 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js' %>
+<%= javascript_pack_tag 'zeppelin' %>

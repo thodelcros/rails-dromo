@@ -1,0 +1,30 @@
+.button-dromo {
+  background-color: $main-blue;
+  width: 190px;
+  height: 83px;
+  border-radius: 54px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    font-family: $headers-font;
+    color: white;
+    font-style: normal;
+    font-weight: lighter;
+    line-height: normal;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+  }
+  i {
+    color: white;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+}
+
+#orange {
+  background-color: $main-orange;
+}

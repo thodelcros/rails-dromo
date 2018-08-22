@@ -1,0 +1,16 @@
+.header-buttons {
+  input {
+    width: 5px;
+    height: 67px;
+    border-radius: 34px;
+    border: none;
+    background-color: $main-orange;
+    padding: 15px 20px;
+    color: white;
+    &::placeholder {
+      color: white;
+      font-family: $headers-font;
+      font-weight: lighter;
+    }
+  }
+}
