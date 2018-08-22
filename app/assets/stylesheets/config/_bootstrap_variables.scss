@@ -7,7 +7,6 @@
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
 $body-bg:                 $light-gray;
-$font-size-base: 18px;
 
 // Colors
 $gray-base:       $gray;
@@ -22,4 +21,9 @@ $border-radius-base:  2px;
 $border-radius-large: 2px;
 $border-radius-small: 2px;
 
-// Override other variables below!
+// Font sizes
+$font-size-base: 18px;
+$font-size-h1: 48px;
+$font-size-h2: 36px;
+
+
