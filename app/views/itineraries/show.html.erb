@@ -5,12 +5,13 @@
 
 
   <div class="container">
-    <%= @itinerary.country %>
+    <h2><%= @itinerary.country %></h2>
     <div class="row">
       <% @itinerary.steps.each do |step| %>
         <div class="col-xs-12">
           <div class="card">
-            <%= step.title %>
+            <h5><%= step.title %></h5>
+            <p><%= step.description %></p>
           </div>
         </div>
       <% end %>
