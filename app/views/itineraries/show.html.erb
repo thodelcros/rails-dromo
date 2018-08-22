@@ -1,2 +1,20 @@
-<h1>Itineraries#show</h1>
-<p>Find me in app/views/itineraries/show.html.erb</p>
+<div class="main-container">
+  <div id="map">
+    COUCOU
+  </div>
+
+
+  <div class="container">
+    <%= @itinerary.country %>
+    <div class="row">
+      <% @itinerary.steps.each do |step| %>
+        <div class="col-xs-12">
+          <div class="card">
+            <%= step.title %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
