@@ -7,16 +7,44 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "destroying all database..."
 
+Step.destroy_all
 Itinary.destroy_all
 Users.destroy_all
 
 
 puts "creating users..."
 
-jeremy = User.create!(name: "jeremyls", email: "jeremy@email.com", password: "azerty", photo: File.open(Rails.root.join("db/fixtures/users/......")), description: "")
-thomas = User.create!(name: "thomasd", email: "thomas@email.com", password: "azerty", photo: File.open(Rails.root.join("db/fixtures/users/......")), description: "")
-renaud = User.create!(name: "renauds", email: "renaud@email.com", password: "azerty", photo: File.open(Rails.root.join("db/fixtures/users/......")), description: "")
-camille = User.create!(name: "camillelb", email: "camille@email.com", password: "azerty", photo: File.open(Rails.root.join("db/fixtures/users/......")), description: "")
+jeremy = User.create!(
+  name: "jeremyls",
+  email: "jeremy@email.com",
+  password: "azerty",
+  photo: File.open(Rails.root.join("db/fixtures/pictures/users/jeremy.png")),
+  description: "I am Jeremy, I was travelling alone for months in this incredible country. We met so much new friends, argentina girls are wonderful !"
+  )
+
+thomas = User.create!(
+  name: "thomasd",
+  email: "thomas@email.com",
+  password: "azerty",
+  photo: File.open(Rails.root.join("db/fixtures/pictures/users/thomas.jpg")),
+  description: "Thomas, 23 years old. I travelled with friends for this south america trip and it was definetly one of my best experience !"
+  )
+
+renaud = User.create!(
+  name: "renauds",
+  email: "renaud@email.com",
+  password: "azerty",
+  photo: File.open(Rails.root.join("db/fixtures/pictures/users/renaud.jpeg")),
+  description: "Renaud. I was alone with my seven children in this huge country, It was an amazing challenge. I think we will now live in Argentina ! One of my best experience."
+  )
+
+camille = User.create!(
+  name: "camillelb",
+  email: "camille@email.com",
+  password: "azerty",
+  photo: File.open(Rails.root.join("db/fixtures/pictures/users/camille.jpg")),
+  description: "My name is Camille, we travelled for a few weeks with my boyfriend in Argentina and it was amazing, people are great !"
+  )
 
 puts "creating itinaries..."
 
@@ -41,9 +69,8 @@ step1 = Step.create!(
   rating: 5
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires.png")), step: step1)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires-2.png")), step: step1)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires-3.png.")), step: step1)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/buenos-aires.jpeg")), step: step1)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/buenos-aires2.jpeg")), step: step1)
 
 step2 = Step.create!(
   itinerary: itinary1,
@@ -54,9 +81,8 @@ step2 = Step.create!(
   rating: 4
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/bahia-blanca.jpeg")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/bahia-blanca2.jpeg")), step: step2)
 
 step3 = Step.create!(
   itinerary: itinary1,
@@ -67,9 +93,8 @@ step3 = Step.create!(
   rating: 3
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/el-condor.jpeg")), step: step3)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/el-condor2.jpeg")), step: step3)
 
 step4 = Step.create!(
   itinerary: itinary1,
@@ -80,10 +105,8 @@ step4 = Step.create!(
   rating: 5
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
-
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/puerto-madryn.jpeg")), step: step4)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/puerto-madryn2.jpeg")), step: step4)
 
 
 puts "Creating first itinary for user #{jeremy.name}..."
@@ -93,7 +116,7 @@ itinary2 = Itinary.create!(
   owner: jeremy,
   duration: 30,
   country: 'Argentina',
-  transportation: 'bus',
+  transportation: 'hitchhiking',
   start_date: Date.new(2017, 2, 20),
   crew: 'solo',
   shared: true
@@ -108,9 +131,7 @@ step1 = Step.create!(
   rating: 3
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires.png")), step: step1)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires-2.png")), step: step1)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires-3.png.")), step: step1)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-2/rio-gallegos.jpeg")), step: step1)
 
 step2 = Step.create!(
   itinerary: itinary2,
@@ -121,9 +142,7 @@ step2 = Step.create!(
   rating: 1
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-2/rio-grande.jpeg")), step: step2)
 
 step3 = Step.create!(
   itinerary: itinary2,
@@ -134,9 +153,7 @@ step3 = Step.create!(
   rating: 4
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-2/tolhuin.jpeg")), step: step3)
 
 step4 = Step.create!(
   itinerary: itinary2,
@@ -147,9 +164,7 @@ step4 = Step.create!(
   rating: 4
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-2/ushuaia.jpeg")), step: step4)
 
 step5 = Step.create!(
   itinerary: itinary2,
@@ -160,9 +175,7 @@ step5 = Step.create!(
   rating: 4
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-2/ushuaia2.jpeg")), step: step5)
 
 
 puts "Creating first itinary for user #{camille.name}..."
@@ -172,7 +185,7 @@ itinary3 = Itinary.create!(
   owner: camille,
   duration: 20,
   country: 'Argentina',
-  transportation: 'bus',
+  transportation: 'car',
   start_date: Date.new(2018, 3, 7),
   crew: 'couple',
   shared: true
@@ -187,9 +200,7 @@ step1 = Step.create!(
   rating: 5
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires.png")), step: step1)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires-2.png")), step: step1)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires-3.png.")), step: step1)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-3/cancha-carrera.jpeg")), step: step1)
 
 step2 = Step.create!(
   itinerary: itinary3,
@@ -200,9 +211,7 @@ step2 = Step.create!(
   rating: 3
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-3/el-calafate.jpeg")), step: step2)
 
 step3 = Step.create!(
   itinerary: itinary3,
@@ -213,9 +222,7 @@ step3 = Step.create!(
   rating: 4
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-3/el-chalten.jpeg")), step: step3)
 
 step4 = Step.create!(
   itinerary: itinary3,
@@ -226,9 +233,7 @@ step4 = Step.create!(
   rating: 5
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-3/punta-bandera.jpeg")), step: step4)
 
 
 puts "Creating first itinary for user #{thomas.name}..."
@@ -253,9 +258,8 @@ step1 = Step.create!(
   rating: 4
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires.png")), step: step1)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires-2.png")), step: step1)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires-3.png.")), step: step1)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-4/el-bolson.jpeg")), step: step1)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-4/el-bolson2.jpeg")), step: step1)
 
 step2 = Step.create!(
   itinerary: itinary4,
@@ -279,9 +283,7 @@ step3 = Step.create!(
   rating: 3
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-4/san-martin.jpeg")), step: step3)
 
 step4 = Step.create!(
   itinerary: itinary4,
@@ -292,9 +294,7 @@ step4 = Step.create!(
   rating: 5
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-4/mendoza.jpeg")), step: step4)
 
 step5 = Step.create!(
   itinerary: itinary4,
@@ -305,9 +305,7 @@ step5 = Step.create!(
   rating: 5
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-4/cordoba.jpeg")), step: step5)
 
 
 puts "Creating first itinary for user #{jeremy.name}..."
@@ -317,7 +315,7 @@ itinary5 = Itinary.create!(
   owner: jeremy,
   duration: 15,
   country: 'Argentina',
-  transportation: 'bus',
+  transportation: 'train',
   start_date: Date.new(2018, 7, 3),
   crew: 'solo',
   shared: true
@@ -332,9 +330,8 @@ step1 = Step.create!(
   rating: 4
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires.png")), step: step1)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires-2.png")), step: step1)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires-3.png.")), step: step1)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-5/amana.jpeg")), step: step1)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-5/amana2.jpeg")), step: step1)
 
 step2 = Step.create!(
   itinerary: itinary5,
@@ -345,9 +342,8 @@ step2 = Step.create!(
   rating: 5
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-5/el-cafayate.jpeg")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-5/el-cafayate2.jpeg")), step: step2)
 
 step3 = Step.create!(
   itinerary: itinary5,
@@ -358,9 +354,9 @@ step3 = Step.create!(
   rating: 5
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-5/jujuy.jpeg")), step: step3)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-5/jujuy2.jpeg")), step: step3)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-/jujuy3.jpeg")), step: step3)
 
 step4 = Step.create!(
   itinerary: itinary5,
@@ -371,9 +367,7 @@ step4 = Step.create!(
   rating: 4
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-5/salta.jpeg")), step: step4)
 
 
 puts "Creating first itinary for user #{renaud.name}..."
@@ -383,7 +377,7 @@ itinary6 = Itinary.create!(
   owner: renaud,
   duration: 7,
   country: 'Argentina',
-  transportation: 'bus',
+  transportation: 'car',
   start_date: Date.new(2017, 11, 20),
   crew: 'family',
   shared: true
@@ -398,9 +392,7 @@ step1 = Step.create!(
   rating: 3
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires.png")), step: step1)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires-2.png")), step: step1)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-1/buenos-aires-3.png.")), step: step1)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-6/puerto-iguazu.jpeg")), step: step1)
 
 step2 = Step.create!(
   itinerary: itinary6,
@@ -411,9 +403,8 @@ step2 = Step.create!(
   rating: 5
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-6/puerto-libertad.jpeg")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-6/puerto-libertad2.jpeg")), step: step2)
 
 step3 = Step.create!(
   itinerary: itinary6,
@@ -424,9 +415,7 @@ step3 = Step.create!(
   rating: 4
 )
 
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota-2.png")), step: step2)
-Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-1/step-2/bogota3.png")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-6/concepcion.jpeg")), step: step3)
 
 
 
