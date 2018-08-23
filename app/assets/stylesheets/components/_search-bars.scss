@@ -9,20 +9,14 @@
     color: white;
     transition: all .4s ease;
     &::placeholder {
-      color: white;
+      color: rgba(255,255,255,.8);
       font-family: $headers-font;
       font-weight: lighter;
-      padding-left: 40px;
+      // padding-left: 40px;
     }
   }
   .search-input-display {
     width: 260px;
-    height: 67px;
-    border-radius: 34px;
-    border: none;
-    background-color: $main-orange;
-    padding: 15px 20px;
-    color: white;
     transition: all .4s ease;
     padding-left: 80px;
   }

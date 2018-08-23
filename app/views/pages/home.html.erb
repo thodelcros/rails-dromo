@@ -1,13 +1,13 @@
-<div class="container-white">
+<div class="container-white-home">
   <div class="home-navbar">
-
+    <%= render 'shared/navbar-home' %>
   </div>
   <div class="home-header">
     <div class="header-content">
       <h1>Get inspiration for your travels</h1>
       <h2 class="subtitle">Discover amazing itineraries from <br>travelers' experiences</br></h2>
       <div class="header-buttons">
-        <button class="button-dromo">
+        <button class="button-dromo button-create">
           <i class="far fa-compass"></i>
           <p>Create</p>
         </button>
@@ -25,7 +25,12 @@
     </div>
   </div>
   <div class="home-cards">
-
+    <h2>Latest itineraries</h2>
+    <div class="cards">
+      <% @latest_itineraries.each do |itinerary| %>
+        <p><%= itinerary.country %></p>
+      <% end %>
+    </div>
   </div>
 </div>
 
