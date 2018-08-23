@@ -1,0 +1,33 @@
+// TABS DASHBOARD
+.tabs-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tabs {
+  flex: 0 0 20%;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+  h2 {
+    font-weight: lighter;
+    margin-top: 0;
+  }
+}
+
+.tabs-links-container {
+  flex: 0 1 auto;
+  a {
+    color: $main-blue;
+    padding: 10px;
+    &:hover {
+      color: $main-orange;
+      text-decoration: none;
+      transition: 0.4s;
+    }
+  }
+}
+
+.tabs-active {
+  font-weight: bolder;
+  border-bottom: 3px solid $pastel-gray;
+}
