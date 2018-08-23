@@ -1,7 +1,8 @@
 class Step < ApplicationRecord
   # à décommenter quand tu fais le setup de geocoder
   geocoded_by :city_with_country
-  after_create :geocode
+  after_validation :geocode
+
   extend Enumerize
 
   belongs_to :itinerary
