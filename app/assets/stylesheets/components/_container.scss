@@ -13,3 +13,15 @@
   position: relative;
 
 }
+
+// CONTAINER SHOW ITINERARY
+.main-container {
+  display: flex;
+}
+
+#map {
+  flex: 0 0 50%;
+  height: calc(100vh - 70px);
+  position: sticky !important;
+  top: 70px;
+}
