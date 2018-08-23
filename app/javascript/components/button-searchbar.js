@@ -3,7 +3,8 @@ function clickToInput() {
 
   button.addEventListener('click', (event) => {
     const input = document.getElementById("search-input");
-    input.classList.toggle("search-input-display")
+    input.classList.toggle("search-input-display");
+    input.focus();
     button.classList.toggle("colors-inversed")
   });
 }
