@@ -12,7 +12,13 @@
           <p>Create</p>
         </button>
         <div class="search-home">
-          <input type="text" placeholder="Type a country" id="search-input">
+          <%= form_tag itineraries_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              id: "search-input",
+              placeholder: "Type a country"
+            %>
+          <% end %>
           <button class="button-dromo" id="orange">
             <i class="fas fa-search"></i>
             <p>Search</p>
