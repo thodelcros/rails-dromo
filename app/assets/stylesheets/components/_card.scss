@@ -2,17 +2,18 @@
   display: flex;
   flex-direction: column;
   height: 348px;
-  width: 400px;
+  width: auto;
   // border: 1px solid black;
   border-radius: 34px;
   position: relative;
 }
 
 .card-image {
-  background-color: #EEF0F2;
   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   flex: 0 0 72%;
+  background-size: cover;
+  background-position: center;
   // height: 252px;
   align-items: center;
 }
@@ -30,6 +31,7 @@
   h3 {
     margin: 0px;
     font-weight: bolder;
+    color: $secondary-blue;
   }
 }
 
