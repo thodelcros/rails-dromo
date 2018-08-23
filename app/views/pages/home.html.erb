@@ -1,12 +1,44 @@
-<div class="container-white">
+<div class="container-white-home">
   <div class="home-navbar">
-
+    <%= render 'shared/navbar-home' %>
   </div>
   <div class="home-header">
-
+    <div class="header-content">
+      <h1>Get inspiration for your travels</h1>
+      <h2 class="subtitle">Discover amazing itineraries from <br>travelers' experiences</br></h2>
+      <div class="header-buttons">
+        <button class="button-dromo button-create">
+          <i class="far fa-compass"></i>
+          <p>Create</p>
+        </button>
+        <div class="search-home">
+          <%= form_tag itineraries_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              id: "search-input",
+              placeholder: "Type a country"
+            %>
+          <% end %>
+          <button class="button-dromo" id="orange">
+            <i class="fas fa-search"></i>
+            <p>Search</p>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="header-zeppelin">
+      <%= render "shared/zeppelin" %>
+    </div>
   </div>
   <div class="home-cards">
-
+    <h2>Latest itineraries</h2>
+    <div class="cards">
+      <% @latest_itineraries.each do |itinerary| %>
+        <p><%= itinerary.country %></p>
+      <% end %>
+    </div>
   </div>
 </div>
 
+<%# javascript_tag 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js' %>
+<%= javascript_pack_tag 'zeppelin' %>

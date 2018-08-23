@@ -1,0 +1,21 @@
+<div class="container-white">
+  <div class="tabs-container">
+    <div class="tabs">
+        <h2>DashBoard</h2>
+        <p style="margin-left: 10px;"><%= pluralize(@itineraries_count, 'trip', 'trips') %></p>
+      </div>
+      <div class="tabs-links-container hidden-xs hidden-sm">
+        <%= link_to 'My Itineraries', owner_itineraries_path %>
+        <%= link_to 'My Favorites', '#', class:'tabs-active' %>
+    </div>
+  </div>
+  <div class="row">
+    <% @countries_list.each do |country| %>
+      <div class="col-xs-offset-1 col-xs-6 col-md-3">
+        <%= link_to "#" do %>
+          <% image_tag ("#{country.downcase}.svg"), alt: country, height:'150' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

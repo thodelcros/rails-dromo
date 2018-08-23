@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :itineraries, foreign_key: :owner_id
   has_many :favorites
+
+  mount_uploader :photo, PhotoUploader
 end

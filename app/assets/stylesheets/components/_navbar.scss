@@ -15,8 +15,21 @@
   background-color: white;
 }
 /* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
+.navbar-wagon-brand {
+  display: flex;
+  // padding-top: 10px;
+  text-decoration: none !important;
+  img {
+    height: 50px;
+    margin-right: 10px;
+  }
+  p {
+    font-family: Fredoka One;
+    font-size: 36px;
+    text-align: center;
+    color: $main-blue;
+    margin: 0;
+  }
 }
 
 /* User Avatar */
@@ -41,11 +54,12 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+  color: $main-blue;
   font-size: 14px;
+  transition: color .3s ease;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: $main-orange;
   text-decoration: none;
 }
 
