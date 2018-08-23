@@ -1,7 +1,8 @@
-<div class="navbar-wagon navbar-fixed-top">
+<div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "zeppelin.svg", height: 50 %>
+    <p>dromo.</p>
   <% end %>
 
   <!-- Right Navigation -->
@@ -20,7 +21,7 @@
             <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
             <li class="list-unstyled" data-toggle="dropdown">
-              <span style="font-size:2.8em; color:$main-blue", id="navbar-wagon-menu", class="avatar dropdown-toggle"><i class="fas fa-user-circle"></i></span>
+              <span style="font-size:2.8em; color: $main-blue;", id="navbar-wagon-menu", class="avatar dropdown-toggle"><i class="fas fa-user-circle"></i></span>
             </li>
           <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">

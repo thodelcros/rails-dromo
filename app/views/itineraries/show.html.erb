@@ -9,13 +9,18 @@
     <div class="row">
       <% @itinerary.steps.each do |step| %>
         <div class="col-xs-12">
+          <%= cl_image_tag step.photos.first.picture, class: "card-picture", :width=>240, :height=>255, :crop=>:fill %>
           <div class="card">
             <h5><%= step.title %></h5>
             <p><%= step.description %></p>
+            <div class="wrap">
+              <button class="button">Discover</button>
+            </div>
           </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+
 

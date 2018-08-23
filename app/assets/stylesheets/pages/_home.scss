@@ -1,1 +1,70 @@
 // Specific CSS for your home-page
+.home-navbar {
+  p.logo {
+    font-family: $logo-font;
+    color: $main-blue;
+    font-size: 36px;
+  }
+
+  .left {
+    display: flex;
+  }
+
+}
+
+.header-buttons {
+  display: flex;
+  margin-top: 150px;
+  .button-create {
+    margin-right: 20px;
+  }
+  .search-home {
+    position: relative;
+    input {
+      position: absolute;
+      top: 8px;
+      left: 10px;
+    }
+    button {
+      position: relative;
+    }
+  }
+}
+
+.home-header {
+  height: 660px;
+  position: relative;
+  .header-content {
+    position: absolute;
+    top: 90px;
+    left: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+    padding-left: 20px;
+    h1 {
+      font-weight: bolder;
+    }
+    h2 {
+      font-weight: lighter;
+      color: $subtitles;
+      margin-top: 45px;
+    }
+  }
+  .header-zeppelin {
+    position: absolute;
+    top: -30px;
+    right: 0px;
+    z-index: 1;
+  }
+}
+
+.home-cards {
+  h2 {
+    margin-left: 75px;
+    font-weight: normal;
+    color: $secondary-blue;
+    margin-top: 45px;
+  }
+}
