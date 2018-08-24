@@ -11,7 +11,7 @@
           class: "form-control search-bar-index search-content",
           placeholder: "Type a country"
         %>
-        <%= button_tag type: "submit", id: "index-go", class:'search-btn' do %>
+        <%= button_tag type: "submit", id: "index-go", class:'header-buttons' do %>
           Search
         <% end %>
       </div>
@@ -23,15 +23,20 @@
     <div class="col-xs-12 col-md-4">
       <div class="card-main-container">
         <div class="card-image">
+
         </div>
         <div class="card-btn">
           <%= link_to "#" do %>
             Discover <i class="fas fa-arrow-right"></i>
           <% end %>
         </div>
+        <div class="card-info-right">
+          <i class="fas fa-users"></i>
+          <p>couple</p>
+        </div>
         <div class="card-info">
-          <span><i class="far fa-clock"></i>  yo</span>
-          <span class="card-info-right"><i class="fas fa-users"></i> yo</span>
+          <i class="far fa-clock"></i>
+          <p>yo</p>
         </div>
         <div class="card-content">
           <h3>Argentina</h3>

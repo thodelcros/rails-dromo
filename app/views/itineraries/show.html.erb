@@ -2,25 +2,33 @@
   <div id="map">
     COUCOU
   </div>
-
-
   <div class="container">
     <h2><%= @itinerary.country %></h2>
-    <div class="row">
-      <% @itinerary.steps.each do |step| %>
-        <div class="col-xs-12">
-          <%= cl_image_tag step.photos.first.picture, class: "card-picture", :width=>240, :height=>255, :crop=>:fill %>
-          <div class="card">
-            <h5><%= step.title %></h5>
-            <p><%= step.description %></p>
-            <div class="wrap">
-              <button class="button">Discover</button>
+    <% @itinerary.steps.each do |step| %>
+      <div class="h-card-container"style="height: 255px;">
+        <div class="horizontal-card">
+          <div class="h-card-image" style="background-image: url('<%= cl_image_path step.photos.first.picture %>')">
+
+          </div>
+          <div class="h-card-content">
+            <div class="content-header">
+              <h5><%= step.title %></h5>
+              <i class="<%= icon_by_category(step.category) %> category"></i>
+
             </div>
+            <p><%= step.description %></p>
+          </div>
+          <div class="h-card-button">
+            <button type="button" class="button-dromo" data-toggle="modal" data-target="#myModal">
+              <p>Discover</p>
+              <i class="fas fa-arrow-right"></i>
+            </button>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
 
 
