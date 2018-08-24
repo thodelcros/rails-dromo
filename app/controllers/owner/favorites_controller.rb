@@ -4,10 +4,4 @@ class Owner::FavoritesController < ApplicationController
     @itineraries_count = @itineraries.count
     @countries_list = @itineraries.map(&:country).uniq
   end
-
-  def create
-    @favorite = Favorite.new()
-    @favorite.user = current_user
-    @favorite.step = params[:step_id]
-  end
 end

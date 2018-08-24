@@ -23,15 +23,22 @@
           <div class="h-card-button">
             <button type="button" class="h-button" data-toggle="modal" data-target="#myModal">
               <p>Discover <i class="fas fa-arrow-right"></i></p>
-
             </button>
           </div>
-        <i class="far fa-heart heart"></i>
+          <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
+          <% if found_favorite_for_step  %>
+            <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
+              <i class="fas fa-heart heart"></i>
+            <% end %>
+          <% else %>
+            <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
+              <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
+            <% end %>
+          <% end %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
 
 
