@@ -11,12 +11,13 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-    @steps = Step.where.not(latitude: nil, longitude: nil)
+    @steps = @itinerary.steps.order(created_at: :asc).where.not(latitude: nil, longitude: nil)
 
-    @markers = @steps.map do |step|
+    @markers = @steps.map.with_index do |step, index|
       {
-        latitude: step.latitude,
-        longitude: step.longitude
+        lat: step.latitude,
+        lng: step.longitude,
+        label: (index + 1).to_s
       }
     end
   end

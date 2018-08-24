@@ -1,22 +1,7 @@
 import GMaps from 'gmaps/gmaps.js';
+import { drawRoute } from '../components/map/drawRoute.js';
 
-const mapElement = document.getElementById('map');
-if (mapElement) {
-  const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
-  const markers = JSON.parse(mapElement.dataset.markers);
-  map.addMarkers(markers);
-  if (markers.length === 0) {
-    map.setZoom(2);
-  } else if (markers.length === 1) {
-    map.setCenter(markers[0].latitude, markers[0].longitude);
-    map.setZoom(14);
-  } else {
-    map.fitLatLngBounds(markers);
-  }
-}
-
-const styles =
-[
+const styles = [
     {
         "featureType": "administrative",
         "elementType": "labels.text.fill",
@@ -394,9 +379,28 @@ const styles =
     }
 ];
 
-map.addStyle({
-  styles: styles,
-  mapTypeId: 'map_style'
-});
 
-map.setStyle('map_style');
+
+const mapElement = document.getElementById('map');
+
+if (mapElement) {
+  const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
+  const markers = JSON.parse(mapElement.dataset.markers);
+  map.addMarkers(markers);
+
+  if (markers.length === 0) {
+    map.setZoom(2);
+  } else if (markers.length === 1) {
+    map.setCenter(markers[0].lat, markers[0].lng);
+    map.setZoom(14);
+  } else {
+    map.fitLatLngBounds(markers);
+  }
+
+  drawRoute(map, markers, styles);
+
+  window.mapObj = map;
+}
+
+
+// export {drawRoute}
