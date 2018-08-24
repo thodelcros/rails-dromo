@@ -5,6 +5,7 @@ module ApplicationHelper
     else
       "#{days.fdiv(30).round} m"
     end
+  end
 
   def icon_by_category(category)
     icon_by_cat = {
@@ -19,4 +20,4 @@ module ApplicationHelper
     return icon_by_cat[category]
   end
 end
-end
+

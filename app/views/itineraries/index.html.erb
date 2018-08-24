@@ -3,8 +3,6 @@
     <h1>Itineraries in Argentina</h1>
     <h2 style="margin-bottom: 90px; color:#CDCDCD">Collect experiences and tips from real travelers !</h2>
 
-
-
   <%= form_tag itineraries_path, method: :get do %>
     <div class="search-module">
       <div class="search-bar-main-container">
@@ -20,14 +18,12 @@
     </div>
   <% end %>
 
-
 <% @Itineraries.each do |itinenary| %>
     <div class="itineraries-container">
     <div class="row">
       <div class="col-xs-12 col-md-4">
         <div class="card-main-container">
           <div class="card-image">
-
           </div>
           <div class="card-btn">
             <%= link_to "#" do %>
