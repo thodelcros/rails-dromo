@@ -1,6 +1,3 @@
-
-
-
 .button-dromo {
   background-color: $main-blue;
   width: 190px;
@@ -55,7 +52,7 @@
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: 500;
-  color: #000;
+  color: $main-blue;
   background-color: #fff;
   border: none;
   border-radius: 45px;
@@ -64,23 +61,32 @@
   cursor: pointer;
   outline: none;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   p {
     justify-content: center;
     margin-bottom: 0;
-    }
+    margin-right: 10px;
   }
 
-  .h-button:hover {
+  i {
+  color: $main-orange;
+  }
+
+  &:hover {
     background-color: #f0a202;
     box-shadow: 0px 15px 20px rgba(240, 162, 2, 0.4);
     color: #fff;
     transform: translateY(-7px);
+    i {
+      color: $main-blue;
+    }
+  }
 }
 
-i {
-  color: $main-orange;
-}
+
 
 .button-dromo-index {
   background-color: $main-orange;
