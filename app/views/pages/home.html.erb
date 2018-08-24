@@ -2,6 +2,9 @@
   <div class="home-navbar">
     <%= render 'shared/navbar-home' %>
   </div>
+  <div class="flashes">
+    <%= render 'shared/flashes' %>
+  </div>
   <div class="home-header">
     <div class="header-content">
       <h1>Get inspiration for your travels</h1>
@@ -34,7 +37,25 @@
     <h2>Latest itineraries</h2>
     <div class="cards">
       <% @latest_itineraries.each do |itinerary| %>
-        <p><%= itinerary.country %></p>
+        <div class="col-xs-12 col-md-4">
+          <div class="card-main-container">
+            <div class="card-image" style="background-image: url(<%= cl_image_path itinerary.steps.first.photos.first.picture %>)">
+            </div>
+            <div class="card-btn">
+              <%= link_to itinerary_path(itinerary) do %>
+                Discover <i class="fas fa-arrow-right"></i>
+              <% end %>
+            </div>
+            <div class="card-info">
+              <span class="card-info-left"><i class="far fa-clock"></i>  <%= get_duration(itinerary.duration_in_days) %></span>
+              <span class="card-info-right"><i class="fas fa-users"></i> yo</span>
+            </div>
+            <div class="card-content">
+              <h3><%= itinerary.country %></h3>
+              <p>by <%= itinerary.owner.name %></p>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

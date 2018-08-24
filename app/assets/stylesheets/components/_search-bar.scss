@@ -4,12 +4,15 @@
 }
 
 .search-content {
-  flex: 0 0 80%;
-  border-radius: 34px 0 0 34px;
-}
-
-.search-btn {
-  flex: 0 0 20%;
-  justify-content: flex-end;
+  flex: 0 0 100%;
   border-radius: 34px;
 }
+
+
+.search-module {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    margin: 0px 0px;
+}
+

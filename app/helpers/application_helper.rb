@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def get_duration(days)
+    if days < 30
+      "#{days} d"
+    else
+      "#{days.fdiv(30).round} m"
+    end
+  end
+
   def icon_by_category(category)
     icon_by_cat = {
       'food' => "fas fa-utensils",
@@ -12,3 +20,4 @@ module ApplicationHelper
     return icon_by_cat[category]
   end
 end
+
