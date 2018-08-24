@@ -1,4 +1,5 @@
 import GMaps from 'gmaps/gmaps.js';
+import { drawRoute } from '../components/map/drawRoute.js';
 
 const styles = [
     {
@@ -378,7 +379,10 @@ const styles = [
     }
 ];
 
+
+
 const mapElement = document.getElementById('map');
+
 if (mapElement) {
   const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
   const markers = JSON.parse(mapElement.dataset.markers);
@@ -393,10 +397,10 @@ if (mapElement) {
     map.fitLatLngBounds(markers);
   }
 
-  map.addStyle({
-    styles: styles,
-    mapTypeId: 'map_style'
-  });
+  drawRoute(map, markers, styles);
 
-  map.setStyle('map_style');
+  window.mapObj = map;
 }
+
+
+// export {drawRoute}
