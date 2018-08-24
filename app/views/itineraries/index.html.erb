@@ -1,9 +1,8 @@
 <div class="container-white">
 
-    <h1 style="font-weight: bolder; margin-left: 15px"> Itineraries in Argentina</h1>
-     <div class='cloud'></div>
-    <h2 style="margin-bottom: 90px; color:#CDCDCD; margin-left: 15px">Collect experiences and tips from real travelers !</h2>
-
+  <h1 style="font-weight: bolder; margin-left: 15px"> Itineraries in Argentina</h1>
+   <div class='cloud'></div>
+  <h2 style="margin-bottom: 90px; color:#CDCDCD; margin-left: 15px">Collect experiences and tips from real travelers !</h2>
 
   <%= form_tag itineraries_path, method: :get do %>
     <div class="search-module">
@@ -21,7 +20,6 @@
   <% end %>
 
 <div class="row" style="margin-top: 40px">
-
    <div class="cards " data-aos="fade-down">
       <% @itineraries.each do |itinerary| %>
         <div class="col-xs-12 col-md-4">

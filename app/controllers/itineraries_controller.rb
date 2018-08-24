@@ -11,6 +11,15 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    @steps = @itinerary.steps.order(created_at: :asc).where.not(latitude: nil, longitude: nil)
+
+    @markers = @steps.map.with_index do |step, index|
+      {
+        lat: step.latitude,
+        lng: step.longitude,
+        label: (index + 1).to_s
+      }
+    end
   end
 
   private

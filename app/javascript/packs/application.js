@@ -5,4 +5,3 @@ initUpdateNavbarOnScroll();
 
 import { clickToInput } from '../components/button-searchbar';
 clickToInput();
-
