@@ -1,0 +1,18 @@
+// 1. On chope le lien grâce à son data-step-id
+// 2. On remplace le lien de création par le lien de destruction:
+//   - method: post -> delete
+//   - url: /steps/:step_id/favorites -> /favorites/:id
+//   - icon: coeur vide -> plein
+
+var favoriteCreationLink = document.querySelector("[data-step-id='<%= @step.id %>']");
+
+favoriteCreationLink.setAttribute('data-method', 'delete');
+favoriteCreationLink.setAttribute('href', '<%= favorite_path(@favorite) %>');
+
+
+var iconTag = favoriteCreationLink.getElementsByTagName('i')[0];
+
+iconTag.classList = "";
+iconTag.classList.add("fas");
+iconTag.classList.add("fa-heart");
+iconTag.classList.add("heart");

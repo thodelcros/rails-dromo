@@ -1,6 +1,8 @@
 <div class="main-container">
-  <div id="map">
-    COUCOU
+  <div id="map"
+  style="width: 100%;
+  height: calc(100vh - 70px);"
+  data-markers="<%= @markers.to_json %>">
   </div>
   <div class="container">
     <h2><%= @itinerary.country %></h2>
@@ -19,13 +21,21 @@
             <p><%= step.description %></p>
           </div>
           <div class="h-card-button">
-
-
             <button type="button" class="button-dromo" data-toggle="modal" data-target="#myModal-<%= step.id %> ">
               <p>Discover</p>
               <i class="fas fa-arrow-right"></i>
             </button>
           </div>
+          <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
+          <% if found_favorite_for_step  %>
+            <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
+              <i class="fas fa-heart heart"></i>
+            <% end %>
+          <% else %>
+            <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
+              <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
+            <% end %>
+          <% end %>
         </div>
       </div>
 
@@ -34,6 +44,5 @@
     <% end %>
   </div>
 </div>
-
 
 
