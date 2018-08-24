@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
+    "aos": "^2.3.3",
     "bootstrap": "3",
     "gmaps": "^0.4.24",
     "gsap": "^2.0.1",
