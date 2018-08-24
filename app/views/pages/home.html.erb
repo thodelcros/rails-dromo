@@ -46,9 +46,13 @@
                 Discover <i class="fas fa-arrow-right"></i>
               <% end %>
             </div>
+            <div class="card-info-right">
+              <i class="fas fa-users"></i>
+              <p>couple</p>
+            </div>
             <div class="card-info">
-              <span class="card-info-left"><i class="far fa-clock"></i>  <%= get_duration(itinerary.duration_in_days) %></span>
-              <span class="card-info-right"><i class="fas fa-users"></i> yo</span>
+              <i class="far fa-clock"></i>
+              <p><%= get_duration(itinerary.duration_in_days) %></p>
             </div>
             <div class="card-content">
               <h3><%= itinerary.country %></h3>
