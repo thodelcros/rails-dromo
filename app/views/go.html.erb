@@ -1,0 +1,33 @@
+<div class="row" style="margin-top: 40px">
+ <div class="cards">
+    <% @itineraries.each do |itinerary| %>
+      <div class="col-xs-12 col-md-4">
+        <div class="card-main-container">
+          <div class="card-info-right">
+            <i class="fas fa-users"></i>
+            <p>couple</p>
+          </div>
+          <div class="card-info">
+            <i class="far fa-clock"></i>
+            <p><%= get_duration(itinerary.duration_in_days) %></p>
+          </div>
+          <div class="hovereffect card-image">
+              <img class="img-responsive" src="<%= cl_image_path itinerary.steps.first.photos.first.picture %>" alt="">
+          </div>
+
+          <div class="card-btn">
+            <%= link_to itinerary_path(itinerary) do %>
+              Discover <i class="fas fa-arrow-right"></i>
+            <% end %>
+          </div>
+          <div class="card-content">
+            <h3><%= itinerary.country %></h3>
+            <p>by <%= itinerary.owner.name %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
