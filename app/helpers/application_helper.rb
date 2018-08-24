@@ -20,3 +20,4 @@ module ApplicationHelper
     return icon_by_cat[category]
   end
 end
+
