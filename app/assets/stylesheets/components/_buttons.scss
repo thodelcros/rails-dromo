@@ -97,7 +97,11 @@
   cursor: pointer;
   outline: none;
   position: relative;
+
+  p {
+    justify-content: center;
     }
+  }
 
   .h-button:hover {
     background-color: #f0a202;
