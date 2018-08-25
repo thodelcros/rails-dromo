@@ -1,2 +1,49 @@
+<div class="container-white">
+  <%= render 'shared/navbar-home' %>
+  <div class="tabs-container">
+    <div class="tabs">
+      <h2>DashBoard</h2>
+      <p style="margin-left: 10px;"><%= pluralize(@nbr_itineraries, 'itinerary', 'itineraries') %></p>
+    </div>
+    <div class="tabs-links-container hidden-xs hidden-sm">
+      <%= link_to 'My Itineraries', '#', class:'tabs-active' %>
+      <%= link_to 'My Favorites',  owner_favorites_path %>
+    </div>
+  </div>
+  <div class="dashboard-content">
+    <div class="row">
+    <% @itineraries.each do |itinerary| %>
 
+      <div class="col-xs-12 col-sm-6 col-md-4">
+
+        <div class="card-main-container">
+          <div class="card-image" style="background-image: url(<%= cl_image_path itinerary.steps.first.photos.first.picture %>)">
+
+            <div class="card-info-right">
+              <i class="fas fa-users"></i>
+              <p>couple</p>
+            </div>
+            <div class="card-info">
+              <i class="far fa-clock"></i>
+              <p><%= get_duration(itinerary.duration_in_days) %></p>
+            </div>
+          </div>
+
+          <div class="card-btn">
+            <%= link_to itinerary_path(itinerary) do %>
+              Remind <i class="fas fa-arrow-right"></i>
+            <% end %>
+          </div>
+
+          <div class="card-content">
+            <h3><%= itinerary.country %></h3>
+          </div>
+        </div>
+
+      </div>
+
+    <% end %>
+    </div>
+  </div>
+</div>
 

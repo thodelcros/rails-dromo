@@ -9,7 +9,10 @@
     <div class="row">
       <div class="col-xs-12">
           <div class="title-container">
+
             <h2><%= @itinerary.country %></h2>
+            <%= image_tag "#{@itinerary.country.downcase}.svg", alt: @itinerary.country %>
+
             <div class="title-container-info">
               <p><i class="fas fa-users"></i> <%= @itinerary.crew %> => </p>
               <p><i class="fas fa-map-marker-alt"></i> <%= @itinerary_nbr_step %> => </p>

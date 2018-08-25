@@ -2,8 +2,10 @@
   <div class="form-container">
     <div class="row">
       <div class="col-xs-12">
+        <%= link_to root_path, class:'arrow-back-home' do %>
+          <i class="fas fa-arrow-left"></i>
+        <% end %>
         <h2>Forgot your password?</h2>
-
         <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
           <%= f.error_notification %>
 
