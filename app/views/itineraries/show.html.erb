@@ -29,7 +29,7 @@
                     <h5><%= step.title.truncate(20) %></h5>
                     <i class="<%= icon_by_category(step.category) %> category"></i>
                   </div>
-                  <p><%= step.description %></p>
+                  <p><%= step.description.truncate(100) %></p>
                   <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
                   <% if found_favorite_for_step  %>
                     <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
