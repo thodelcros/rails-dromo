@@ -1,10 +1,11 @@
 <div class="main-container">
   <div id="map"
   style="width: 100%;
-  height: calc(100vh - 70px);"
+  height: 100vh;"
   data-markers="<%= @markers.to_json %>">
   </div>
   <div class="container">
+    <%= render 'shared/navbar-home' %>
     <div class="row">
       <div class="col-xs-12">
           <div class="title-container">
