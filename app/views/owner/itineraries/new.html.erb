@@ -1,2 +1,11 @@
-<h1>CREATE</h1>
-
+<div class="main-container">
+  <div class="container">
+    <%= render 'shared/navbar-home' %>
+    <h2>Create your itinerary</h2>
+  </div>
+  <div id="map"
+  style="width: 100%;
+  height: 100vh;"
+  data-markers="<%= @markers.to_json %>">
+  </div>
+</div>
