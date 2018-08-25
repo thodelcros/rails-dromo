@@ -13,7 +13,7 @@
 }
 
 .container-white-home {
-  margin: -45px 50px 50px 50px;
+  margin: 50px 50px 50px 50px;
   background-color: white;
   border-radius: 34px;
   position: relative;
@@ -27,9 +27,9 @@
 
 #map {
   flex: 0 0 50%;
-  height: calc(100vh - 70px);
+  height: 100vh;
   position: sticky !important;
-  top: 70px;
+  top: 0px;
 }
 
 // CONTAINER SHOW
