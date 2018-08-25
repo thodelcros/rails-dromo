@@ -31,3 +31,29 @@
   position: sticky !important;
   top: 70px;
 }
+
+// CONTAINER SHOW
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 25px;
+  border-bottom: 1px solid $pastel-gray;
+}
+
+.title-container-info {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+  p {
+    font-weight: lighter;
+    font-size: 14px;
+    padding-left: 15px;
+  }
+  i {
+    font-size: 1.4em;
+    color: $main-orange;
+    padding-right: 2px;
+  }
+}

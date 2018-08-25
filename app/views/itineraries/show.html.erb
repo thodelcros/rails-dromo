@@ -5,44 +5,57 @@
   data-markers="<%= @markers.to_json %>">
   </div>
   <div class="container">
-    <h2><%= @itinerary.country %></h2>
-    <p style="font-weight: lighter; font-size: 14px; padding-bottom: 0;">Main transportation : <%= @itinerary.transportation %></p>
-    <p style="font-weight: lighter; font-size: 14px; padding-bottom: 0;">Trip mode : <%= @itinerary.crew %></p>
-    <% @itinerary.steps.each do |step| %>
-      <div class="h-card-container"style="height: 255px;">
-        <div class="horizontal-card">
-          <div class="h-card-image" style="background-image: url('<%= cl_image_path step.photos.first.picture %>')">
-          </div>
-          <div class="h-card-content">
-            <div class="content-header">
-              <h5><%= step.title %></h5>
-              <i class="<%= icon_by_category(step.category) %> category"></i>
+    <div class="row">
+      <div class="col-xs-12">
+          <div class="title-container">
+            <h2><%= @itinerary.country %></h2>
+            <div class="title-container-info">
+              <p><i class="fas fa-users"></i> <%= @itinerary.crew %> => </p>
+              <p><i class="fas fa-map-marker-alt"></i> <%= @itinerary_nbr_step %> => </p>
+              <p><i class="fas fa-toolbox"></i> <%= @itinerary.transportation %> => </p>
+              <p><i class="far fa-clock"></i> <%= @itinerary.duration_in_days %> days</p>
             </div>
-            <p><%= step.description %></p>
           </div>
-          <div class="h-card-button">
-            <button type="button" class="h-button" data-toggle="modal" data-target="#myModal-<%= step.id %> ">
-              <p>Discover</p>
-              <i class="fas fa-arrow-right"></i>
-            </button>
-          </div>
-          <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
-          <% if found_favorite_for_step  %>
-            <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
-              <i class="fas fa-heart heart"></i>
-            <% end %>
-          <% else %>
-            <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
-              <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
-            <% end %>
+
+          <% @itinerary.steps.each_with_index do |step, index| %>
+            <div class="h-card-container"style="height: 255px;">
+              <div class="horizontal-card">
+                <div class="h-card-image" style="background-image: url('<%= cl_image_path step.photos.first.picture %>')">
+                </div>
+
+                <div class="h-card-content">
+                  <div class="content-header">
+                    <span><%= index + 1 %></span>
+                    <h5><%= step.title.truncate(20) %></h5>
+                    <i class="<%= icon_by_category(step.category) %> category"></i>
+                  </div>
+                  <p><%= step.description %></p>
+                </div>
+
+                <div class="h-card-button">
+                  <button type="button" class="h-button" data-toggle="modal" data-target="#myModal-<%= step.id %> ">
+                    <p>Discover</p>
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+                <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
+                <% if found_favorite_for_step  %>
+                  <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
+                    <i class="fas fa-heart heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
+                    <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <%= render 'shared/modal', step: step %>
           <% end %>
         </div>
       </div>
+    </div>
 
-      <%= render 'shared/modal', step: step %>
-
-    <% end %>
-  </div>
 </div>
 
 

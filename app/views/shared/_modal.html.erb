@@ -26,16 +26,12 @@
 
         <div class="modal-foot">
           <div class="modal-foot-left">
-            <!-- <i class="<%= icon_by_category(step.category) %> category" style="margin-left: 0;"></i> -->
+            <i class="<%= icon_by_category(step.category) %> category" style="margin-left: 0;"></i>
             <p><%= step.category %></p>
           </div>
           <div class="modal-foot-right">
-            <p style="font-weight: bolder;">Rating</p>
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-            <p>5</p>
+            <p>Rating</p>
+            <span><%= step.rating %> / 5</span>
           </div>
         </div>
     </div>
