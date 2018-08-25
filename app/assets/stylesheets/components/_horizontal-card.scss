@@ -65,7 +65,7 @@
 }
 
 .h-card-container {
-  margin: 63px 0px;
+  margin: 35px 0px;
 }
 
 .horizontal-card {
@@ -94,7 +94,27 @@
   border: none;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.07);
   height: 230px;
-  width: 690px;
+  span{
+    color: $pastel-gray;
+    font-weight: lighter;
+    border-radius: 50%;
+    border: 1px solid $pastel-gray;
+    font-size: 12px;
+    padding: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  p {
+    font-weight: lighter;
+    font-size: 15px;
+  }
+}
+
+.content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
 }
 
 .h-card-button {
@@ -114,7 +134,7 @@
   position: absolute;
   color: $main-orange;
   z-index: 10;
-  top: 210px;
-  right: 20px;
   font-size: 20px;
+  right: 20px;
+  bottom: 20px;
 }

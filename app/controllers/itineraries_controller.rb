@@ -11,8 +11,8 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    @itinerary_nbr_step = set_itinerary_steps_count
     @steps = @itinerary.steps.order(created_at: :asc).where.not(latitude: nil, longitude: nil)
-
     @markers = @steps.map.with_index do |step, index|
       {
         lat: step.latitude,
@@ -26,5 +26,9 @@ class ItinerariesController < ApplicationController
 
   def set_itinerary
     @itinerary = Itinerary.find(params[:id])
+  end
+
+  def set_itinerary_steps_count
+    @itinerary.steps.count
   end
 end
