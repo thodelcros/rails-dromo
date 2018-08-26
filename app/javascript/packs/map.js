@@ -386,6 +386,12 @@ const mapElement = document.getElementById('map');
 if (mapElement) {
   const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
   const markers = JSON.parse(mapElement.dataset.markers);
+
+  markers.forEach((marker) => {
+    marker.setIcon('../../assets/images/map-marker.svg');
+    marker.setAnimation(google.maps.Animation.DROP);
+  });
+
   map.addMarkers(markers);
 
   if (markers.length === 0) {
