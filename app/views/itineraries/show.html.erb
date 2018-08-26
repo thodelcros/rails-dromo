@@ -34,14 +34,20 @@
                     <i class="<%= icon_by_category(step.category) %> category"></i>
                   </div>
                   <p><%= step.description.truncate(100) %></p>
-                  <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
-                  <% if found_favorite_for_step  %>
-                    <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
-                      <i class="fas fa-heart heart"></i>
+                  <% if user_signed_in? %>
+                    <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
+                    <% if found_favorite_for_step  %>
+                      <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
+                        <i class="fas fa-heart heart"></i>
+                      <% end %>
+                    <% else %>
+                      <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
+                        <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
+                      <% end %>
                     <% end %>
                   <% else %>
-                    <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
-                      <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
+                    <%= link_to new_user_session_path do %>
+                      <i class="far fa-heart heart"></i>
                     <% end %>
                   <% end %>
                 </div>
