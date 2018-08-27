@@ -37,32 +37,32 @@
       <div class="row">
         <% @latest_itineraries.each do |itinerary| %>
           <div class="col-xs-12 col-md-4 col-sm-6">
-          <div class="card-main-container">
-            <div class="card-image" style="background-image: url(<%= cl_image_path itinerary.steps.first.photos.first.picture %>)">
+            <div class="card-main-container">
+              <div class="card-image" style="background-image: url(<%= cl_image_path itinerary.steps.first.photos.first.picture %>)">
 
-              <div class="card-info-right">
-                <i class="fas fa-users"></i>
-                <p><%= itinerary.crew %></p>
+                <div class="card-info-right">
+                  <i class="fas fa-users"></i>
+                  <p><%= itinerary.crew %></p>
+                </div>
+                <div class="card-info">
+                  <i class="far fa-clock"></i>
+                  <p><%= get_duration(itinerary.duration_in_days) %></p>
+                </div>
               </div>
-              <div class="card-info">
-                <i class="far fa-clock"></i>
-                <p><%= get_duration(itinerary.duration_in_days) %></p>
+
+              <div class="card-btn">
+                <%= link_to itinerary_path(itinerary) do %>
+                  Discover <i class="fas fa-arrow-right"></i>
+                <% end %>
               </div>
-            </div>
 
-            <div class="card-btn">
-              <%= link_to itinerary_path(itinerary) do %>
-                Discover <i class="fas fa-arrow-right"></i>
-              <% end %>
-            </div>
-
-            <div class="card-content">
-              <h3><%= itinerary.country %></h3>
-              <h6><i class="fas fa-map-pin"></i> <%= itinerary.steps.count %> steps</h6>
-              <p>by <%= itinerary.owner.name %></p>
+              <div class="card-content">
+                <h3><%= itinerary.country %></h3>
+                <h6><i class="fas fa-map-pin"></i> <%= itinerary.steps.count %> steps</h6>
+                <p>by <%= itinerary.owner.name %></p>
+              </div>
             </div>
           </div>
-        </div>
         <% end %>
       </div>
     </div>

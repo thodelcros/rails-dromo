@@ -3,7 +3,7 @@
   <div class="tabs-container">
     <div class="tabs">
       <h2>DashBoard</h2>
-      <p style="margin-left: 10px;"><%= pluralize(@itineraries_count, 'favorite', 'favorites') %></p>
+      <p style="color: #C4C4C4;"><%= pluralize(@favorites.count, 'favorite', 'favorites') %> in <%= pluralize(@countries.count, 'country', 'countries') %></p>
     </div>
     <div class="tabs-links-container hidden-xs hidden-sm">
       <%= link_to 'My Itineraries', owner_itineraries_path %>
@@ -11,18 +11,17 @@
     </div>
   </div>
 
-  <% @countries_list.each do |country| %>
-  <div class="row">
-    <div class="col-xs-12 col-md-4">
-      <div class="card-flag-main-container">
-        <%= link_to '#' do %>
-          <%= image_tag ("#{country.downcase}.svg"), alt: country, height:'150' %>
-        <% end %>
-        <p><%= pluralize(@itineraries.where(country: country).count, 'step', 'steps') %></p>
-        <p><%= country %></p>
+  <div class="favorite-cards">
+    <div class="row">
+    <% @favorites_per_country.each do |country, favorites| %>
+      <div class="col-xs-12 col-sm-3">
+        <div class="favorite-card">
+          <%= image_tag "flags/#{country.downcase}", alt: "#{country.downcase}-flag", width: 70 %>
+          <h4><%= country %></h4>
+          <p><%= pluralize(favorites.count, 'favorite', 'favorites') %></p>
         </div>
       </div>
+    <% end %>
     </div>
-  <% end %>
-  <%= @itineraries %>
+  </div>
 </div>
