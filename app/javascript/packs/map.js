@@ -443,13 +443,13 @@ if (mapElement) {
     stepCard.addEventListener('mouseenter', (event) => {
       let markerIndex = Array.prototype.indexOf.call(stepCards, stepCard);
       let marker = mapMarkers[markerIndex];
-      marker.setIcon({url: 'https://res.cloudinary.com/thodelcros/image/upload/v1535377577/pin-active.svg', labelOrigin: new google.maps.Point(13, 13)});
+      marker.setIcon({url: 'https://res.cloudinary.com/thodelcros/image/upload/v1535387727/pin.svg', labelOrigin: new google.maps.Point(13, 13)});
     });
 
     stepCard.addEventListener('mouseleave', (event) => {
       let markerIndex = Array.prototype.indexOf.call(stepCards, stepCard);
       let marker = mapMarkers[markerIndex];
-      marker.setIcon({url: 'https://res.cloudinary.com/thodelcros/image/upload/v1535377577/pin.svg', labelOrigin: new google.maps.Point(13, 13)});
+      marker.setIcon({url: 'https://res.cloudinary.com/thodelcros/image/upload/v1535377577/pin-active.svg', labelOrigin: new google.maps.Point(13, 13)});
     });
   });
 }

@@ -1,7 +1,12 @@
 class Owner::FavoritesController < ApplicationController
   def index
-    @itineraries = Itinerary.all.where(owner: current_user)
-    @itineraries_count = @itineraries.count
-    @countries_list = @itineraries.map(&:country).uniq
+    @favorites = current_user.favorites
+
+    @favorites_per_country = current_user.favorites.group_by do |favorite|
+      favorite.country
+    end
+
+    @countries = []
+    @favorites_per_country.each_key { |key| @countries << key }
   end
 end

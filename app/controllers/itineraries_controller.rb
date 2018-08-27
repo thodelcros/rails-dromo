@@ -20,12 +20,12 @@ class ItinerariesController < ApplicationController
         lng: step.longitude,
         label: {
           text: (index + 1).to_s,
-          color: "#FFFFFF",
+          color: "#011638",
           fontSize: "16px",
           fontWeight: "bold"
         },
         icon: {
-          url: "https://res.cloudinary.com/thodelcros/image/upload/v1535377577/pin.svg",
+          url: "https://res.cloudinary.com/thodelcros/image/upload/v1535377577/pin-active.svg",
           origin: [0, 0],
           labelOrigin: [13,13]
         }
