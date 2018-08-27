@@ -18,6 +18,7 @@ class ItinerariesController < ApplicationController
         lat: step.latitude,
         lng: step.longitude,
         label: (index + 1).to_s,
+        icon: "http://res.cloudinary.com/thodelcros/image/upload/v1535375498/map-marker.svg"
       }
     end
   end

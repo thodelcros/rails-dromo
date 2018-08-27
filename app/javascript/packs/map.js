@@ -404,10 +404,6 @@ if (mapElement) {
 
 
   let stepCards = document.querySelectorAll('.horizontal-card');
-  // console.log(stepCards);
-
-  // console.log(stepCards.indexOf(stepCards[1])) // 1
-  // Array.prototype.indexOf.call(stepCards, stepCards[1]);
 
 
   mapMarkers.forEach((marker) => {
@@ -431,13 +427,13 @@ if (mapElement) {
     stepCard.addEventListener('mouseenter', (event) => {
       let markerIndex = Array.prototype.indexOf.call(stepCards, stepCard);
       let marker = mapMarkers[markerIndex];
-      marker.setAnimation(google.maps.Animation.BOUNCE);
+      marker.setIcon('https://res.cloudinary.com/thodelcros/image/upload/v1535375498/map-marker-active.svg');
     });
 
     stepCard.addEventListener('mouseleave', (event) => {
       let markerIndex = Array.prototype.indexOf.call(stepCards, stepCard);
       let marker = mapMarkers[markerIndex];
-      marker.setAnimation(null);
+      marker.setIcon('http://res.cloudinary.com/thodelcros/image/upload/v1535375498/map-marker.svg');
     });
   });
 }
