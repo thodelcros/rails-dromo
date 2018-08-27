@@ -387,12 +387,7 @@ if (mapElement) {
   const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
   const markers = JSON.parse(mapElement.dataset.markers);
 
-  markers.forEach((marker) => {
-    marker.setIcon('../../assets/images/map-marker.svg');
-    marker.setAnimation(google.maps.Animation.DROP);
-  });
-
-  map.addMarkers(markers);
+  const mapMarkers = map.addMarkers(markers);
 
   if (markers.length === 0) {
     map.setZoom(2);
@@ -406,6 +401,45 @@ if (mapElement) {
   drawRoute(map, markers, styles);
 
   window.mapObj = map;
+
+
+  let stepCards = document.querySelectorAll('.horizontal-card');
+  // console.log(stepCards);
+
+  // console.log(stepCards.indexOf(stepCards[1])) // 1
+  // Array.prototype.indexOf.call(stepCards, stepCards[1]);
+
+
+  mapMarkers.forEach((marker) => {
+    marker.addListener('mouseover', function() {
+      let stepCardIndex = Array.prototype.indexOf.call(mapMarkers, marker);
+      let stepCard      = stepCards[stepCardIndex];
+
+      stepCard.classList.add('card-hovered');
+    });
+
+    marker.addListener('mouseout', function() {
+      let stepCardIndex = Array.prototype.indexOf.call(mapMarkers, marker);
+      let stepCard      = stepCards[stepCardIndex];
+
+      stepCard.classList.remove('card-hovered');
+    });
+  });
+
+
+  stepCards.forEach((stepCard) => {
+    stepCard.addEventListener('mouseenter', (event) => {
+      let markerIndex = Array.prototype.indexOf.call(stepCards, stepCard);
+      let marker = mapMarkers[markerIndex];
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    });
+
+    stepCard.addEventListener('mouseleave', (event) => {
+      let markerIndex = Array.prototype.indexOf.call(stepCards, stepCard);
+      let marker = mapMarkers[markerIndex];
+      marker.setAnimation(null);
+    });
+  });
 }
 
 

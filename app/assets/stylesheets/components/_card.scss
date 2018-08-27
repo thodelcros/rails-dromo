@@ -158,3 +158,14 @@
 @keyframes move{
   40% { transform: translateY(-25px); }
 }
+
+
+
+.card-hovered {
+  transform: scale(1.03);
+  transition: all .4s ease;
+}
+
+
+
+

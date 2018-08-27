@@ -17,7 +17,7 @@ class ItinerariesController < ApplicationController
       {
         lat: step.latitude,
         lng: step.longitude,
-        label: (index + 1).to_s
+        label: (index + 1).to_s,
       }
     end
   end
