@@ -385,7 +385,23 @@ const mapElement = document.getElementById('map');
 
 if (mapElement) {
   const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
-  const markers = JSON.parse(mapElement.dataset.markers);
+  const markers = JSON.parse(mapElement.dataset.markers).map((marker) => {
+
+    let markerCorrectlyPositionned = {
+      lat: marker.lat,
+      lng: marker.lng,
+      label: marker.label,
+      icon: {
+        url: marker.icon.url,
+        // scaledSize: new google.maps.Size(marker.icon.scaledSize[0], marker.icon.scaledSize[1]),
+        origin: new google.maps.Point(marker.icon.origin[0], marker.icon.origin[1]),
+        // anchor: new google.maps.Point(marker.icon.anchor[0], marker.icon.anchor[1]),
+        labelOrigin: new google.maps.Point(marker.icon.labelOrigin[0], marker.icon.labelOrigin[1])
+      }
+    }
+
+    return markerCorrectlyPositionned;
+  });
 
   const mapMarkers = map.addMarkers(markers);
 
@@ -404,10 +420,6 @@ if (mapElement) {
 
 
   let stepCards = document.querySelectorAll('.horizontal-card');
-  // console.log(stepCards);
-
-  // console.log(stepCards.indexOf(stepCards[1])) // 1
-  // Array.prototype.indexOf.call(stepCards, stepCards[1]);
 
 
   mapMarkers.forEach((marker) => {
@@ -431,13 +443,13 @@ if (mapElement) {
     stepCard.addEventListener('mouseenter', (event) => {
       let markerIndex = Array.prototype.indexOf.call(stepCards, stepCard);
       let marker = mapMarkers[markerIndex];
-      marker.setAnimation(google.maps.Animation.BOUNCE);
+      marker.setIcon({url: 'https://res.cloudinary.com/thodelcros/image/upload/v1535377577/pin-active.svg', labelOrigin: new google.maps.Point(13, 13)});
     });
 
     stepCard.addEventListener('mouseleave', (event) => {
       let markerIndex = Array.prototype.indexOf.call(stepCards, stepCard);
       let marker = mapMarkers[markerIndex];
-      marker.setAnimation(null);
+      marker.setIcon({url: 'https://res.cloudinary.com/thodelcros/image/upload/v1535377577/pin.svg', labelOrigin: new google.maps.Point(13, 13)});
     });
   });
 }
