@@ -36,7 +36,7 @@
     <div class="cards">
       <div class="row">
         <% @latest_itineraries.each do |itinerary| %>
-          <div class="col-xs-12 col-md-4">
+          <div class="col-xs-12 col-md-4 col-sm-6">
           <div class="card-main-container">
             <div class="card-image" style="background-image: url(<%= cl_image_path itinerary.steps.first.photos.first.picture %>)">
 
