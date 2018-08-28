@@ -7,7 +7,9 @@
     "bootstrap": "3",
     "gmaps": "^0.4.24",
     "gsap": "^2.0.1",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "tippy": "^0.0.0",
+    "tippy.js": "1.4.2"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"

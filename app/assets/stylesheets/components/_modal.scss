@@ -104,3 +104,20 @@
   }
 }
 
+.modal-foot-center {
+  font-size: 15px;
+  a {
+    text-decoration: none !important;
+  }
+  p {
+    color: white;
+    background-color: #364156;
+    padding: 10px 20px;
+    border-radius: 34px;
+    transition: all .2s ease;
+    &:hover {
+      color: white;
+      background-color: #5D6A80;
+    }
+  }
+}
