@@ -15,7 +15,9 @@ function drawRoute(map, markers, styles) {
     origin:      origin,
     destination: destination,
     waypoints:   waypoints,
-    travelMode: 'driving'
+    travelMode: 'driving',
+    strokeColor: '#F0A202',
+    strokeWeight: 5,
   });
 
   map.addStyle({
