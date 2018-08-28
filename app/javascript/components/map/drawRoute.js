@@ -19,13 +19,6 @@ function drawRoute(map, markers, styles) {
     strokeColor: '#F0A202',
     strokeWeight: 5,
   });
-
-  map.addStyle({
-    styles: styles,
-    mapTypeId: 'map_style'
-  });
-
-  map.setStyle('map_style');
 }
 
 export { drawRoute }

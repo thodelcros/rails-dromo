@@ -14,7 +14,7 @@
   <div class="favorite-cards">
     <div class="row">
     <% @favorites_per_country.each do |country, favorites| %>
-      <%= link_to country_owner_favorites_path(country) do %>
+      <%= link_to country_owner_favorites_path(name: country) do %>
         <div class="col-xs-12 col-sm-3">
           <div class="favorite-card">
             <%= image_tag "flags/#{country.downcase}", alt: "#{country.downcase}-flag", width: 70 %>

@@ -11,7 +11,7 @@ class Owner::FavoritesController < ApplicationController
   end
 
   def country
-    @country = params[:format]
+    @country = params[:name]
 
     @favorites_per_country = current_user.favorites.order(created_at: :asc).group_by do |favorite|
       favorite.country
