@@ -14,9 +14,9 @@
             <%= image_tag "#{@itinerary.country.downcase}.svg", alt: @itinerary.country %>
 
             <div class="title-container-info">
-              <p><i class="fas fa-users"></i> <%= @itinerary.crew %> => </p>
-              <p><i class="fas fa-map-marker-alt"></i> <%= @itinerary_nbr_step %> => </p>
-              <p><i class="fas fa-toolbox"></i> <%= @itinerary.transportation %> => </p>
+              <p><i class="<%= icon_by_crew(@itinerary.crew) %> crew"></i> <%= @itinerary.crew %></p>
+              <p><i class="fas fa-map-marker-alt"></i> <%= @itinerary_nbr_step %></p>
+              <p><i class="<%= icon_by_transportation(@itinerary.transportation) %> transportation"></i> <%= @itinerary.transportation %></p>
               <p><i class="far fa-clock"></i> <%= @itinerary.duration_in_days %> days</p>
             </div>
           </div>

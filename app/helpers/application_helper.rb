@@ -24,7 +24,7 @@ module ApplicationHelper
     icon_by_crew = {
       "solo" => "fas fa-child",
       "family" => "fas fa-users",
-      "couple" => "fas fa-male fas fa-female",
+      "couple" => "fas fa-people-carry",
       "friend" => "fas fa-users"
     }
 
@@ -38,7 +38,8 @@ module ApplicationHelper
       "plane" => "fas fa-plane-departure",
       "boat" => "fas fa-ship",
       "hitchhiking" => "fas fa-walking",
-      "motorbike" => "fas fa-motorcycle"
+      "motorbike" => "fas fa-motorcycle",
+      "train" => "fas fa-subway"
     }
 
     return icon_by_transportation[transportation]
