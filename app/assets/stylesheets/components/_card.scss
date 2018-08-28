@@ -92,8 +92,14 @@
   }
 }
 
+.card-info-container {
+  position: relative;
+}
+
 .card-info {
   position: absolute;
+  top: 25px;
+  right: -10px;
   background-color: white;
   display: flex;
   border-radius: 34px;
@@ -115,14 +121,11 @@
   }
 }
 
-.card-info, .card-info-right {
-  right: 50px;
-  top: 60px;
-}
-
 .card-info-right {
   color: white;
   position: absolute;
+  top: 25px;
+  right: -18px;
   display: flex;
   background-color: $main-blue;
   border-radius: 34px;
