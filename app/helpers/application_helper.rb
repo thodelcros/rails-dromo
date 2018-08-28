@@ -19,5 +19,13 @@ module ApplicationHelper
 
     return icon_by_cat[category]
   end
+
+  def icon_by_crew(crew)
+    icon_by_crew = {
+      "solo" => "fas fa-user",
+      "family" => ""
+    }
+
+  end
 end
 

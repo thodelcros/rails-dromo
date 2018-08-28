@@ -10,7 +10,7 @@ class Step < ApplicationRecord
 
   enumerize :category, in: ['food', 'nature', 'sport', 'party', 'housing', 'vantage point']
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
 
   # Step.category.values # if you need access to the list in the view for instance, for a select input
 

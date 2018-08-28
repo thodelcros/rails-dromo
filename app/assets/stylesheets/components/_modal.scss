@@ -1,34 +1,43 @@
+.modal-content {
+  border-radius: 34px !important;
+}
+
 .modal-title {
   img {
     width: 100%;
+    border-radius: 34px 34px 0 0;
   }
 }
 
 .modal-body-header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
   i {
     padding-top: 10px;
-    font-size: 1.2em;
+    font-size: 1.4em;
+    color: $main-orange;
     &:hover {
-      color: $main-orange;
       cursor: pointer;
     }
   }
 }
 
 .modal-body-content {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
   padding-bottom: 10px;
   margin-top: 0px;
   font-weight: lighter;
+  font-size: 15px;
 }
 
 .modal-body-footer {
   display: flex;
   justify-content: space-around;
+  padding-bottom: 30px;
 }
 
 .modal-body-footer-left {
@@ -43,9 +52,10 @@
 }
 
 .modal-body-footer-right {
-  padding: 20px;
+  padding-right: 20px;
   p {
-    font-weight: lighter;
+    color: $pastel-gray;
+    font-weight: bolder;
     font-size: 15px;
   }
   h5 {
@@ -60,24 +70,37 @@
   justify-content: space-between;
   height: 50px;
   background-color: #eff0f1;
+  padding-top: 12px;
+  border-radius: 0 0 34px 34px;
 }
 
 .modal-foot-left {
+  display: flex;
   flex: 0 0 auto;
   padding-left: 20px;
   p {
     font-weight: lighter;
     font-size: 15px;
+    margin-left: 10px;
+  }
+  i {
+    color: $main-orange;
   }
 }
 
 .modal-foot-right {
   display: flex;
-  font-weight: lighter;
   font-size: 15px;
   padding-right: 20px;
   p {
     color: $main-blue;
+    font-weight: lighter;
+    margin-right: 10px;
+  }
+  span {
     padding-right: 10px;
+    color: $pastel-gray;
+    font-weight: bolder;
   }
 }
+

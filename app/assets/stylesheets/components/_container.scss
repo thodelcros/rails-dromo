@@ -1,10 +1,9 @@
-// CONTAINER HOMEPAGE/LOG/SIGN/DASHBOARD
+// CONTAINER HOMEPAGE/LOG/SIGN
 .container-white {
   margin: 50px;
   background-color: white;
   border-radius: 34px;
-  padding: 20px;
-
+  min-height: 90vh;
 }
 
 .itineraries-container {
@@ -13,7 +12,7 @@
 }
 
 .container-white-home {
-  margin: -45px 50px 50px 50px;
+  margin: 50px 50px 50px 50px;
   background-color: white;
   border-radius: 34px;
   position: relative;
@@ -27,7 +26,63 @@
 
 #map {
   flex: 0 0 50%;
-  height: calc(100vh - 70px);
+  height: 100vh;
   position: sticky !important;
-  top: 70px;
+  top: 0px;
+}
+
+// CONTAINER SHOW
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 25px;
+  padding-top: 0;
+  border-bottom: 1px solid $pastel-gray;
+  border-top: 1px solid $pastel-gray;
+  img {
+    height: 50px;
+    border-radius: 50%;
+  }
+}
+
+.title-container-info {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+  p {
+    font-weight: lighter;
+    font-size: 14px;
+    padding-left: 15px;
+  }
+  i {
+    font-size: 1.4em;
+    color: $main-orange;
+    padding-right: 2px;
+  }
+}
+
+// CONTAINER DASHBOARD
+.dashboard-content {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+// CONTAINER CREATE
+.create-main-container {
+  display: flex;
+}
+
+.create-form-main-container {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.index-header-content {
+  padding-left: 63px;
+  padding-top: 67px;
 }

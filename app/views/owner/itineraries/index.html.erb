@@ -1,2 +1,63 @@
+`<div class="container-white">
+  <%= render 'shared/navbar-home' %>
+  <div class="tabs-container">
+    <div class="tabs">
+      <h2>DashBoard</h2>
+      <p style="color: #C4C4C4C4"><%= pluralize(@nbr_itineraries, 'itinerary', 'itineraries') %></p>
+    </div>
+    <div class="tabs-links-container hidden-xs hidden-sm">
+      <%= link_to 'My Itineraries', '#', class:'tabs-active' %>
+      <%= link_to 'My Favorites',  owner_favorites_path %>
+    </div>
+  </div>
+  <div class="dashboard-content">
+    <div class="row">
+    <% @itineraries.each do |itinerary| %>
+      <div class="col-xs-12 col-md-4 col-sm-6">
+        <div class="card-main-container">
+          <div class="card-image" style="background-image: url(<%= cl_image_path itinerary.steps.first.photos.first.picture %>)">
+            <% if itinerary.shared %>
+              <div class="ribbon-shared ribbon-top-left-corner">
+                <span>Published</span>
+              </div>
+            <% else %>
+              <div class="ribbon-pending ribbon-top-left-corner">
+                <<span>In Progress</span>
+              </div>
+            <% end %>
 
+            <div class="card-info-right">
+              <i class="fas fa-users"></i>
+              <p><%= itinerary.crew %></p>
+            </div>
+            <div class="card-info">
+              <i class="far fa-clock"></i>
+              <p><%= get_duration(itinerary.duration_in_days) %></p>
+            </div>
+          </div>
+          <% if itinerary.shared %>
+            <div class="card-btn">
+              <%= link_to itinerary_path(itinerary) do %>
+                Discover <i class="fas fa-arrow-right"></i>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="card-btn">
+              <%= link_to itinerary_path(itinerary) do %>
+                Continue <i class="fas fa-arrow-right"></i>
+              <% end %>
+            </div>
+          <% end %>
+
+          <div class="card-content">
+            <h3><%= itinerary.country %></h3>
+            <h6><i class="fas fa-map-pin"></i> <%= itinerary.steps.count %> steps</h6>
+            <p>by <%= itinerary.owner.name %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
 

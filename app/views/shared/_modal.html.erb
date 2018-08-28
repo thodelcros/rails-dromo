@@ -8,7 +8,22 @@
 
         <div class="modal-body-header">
           <h4><%= step.title %></h4>
-          <i class="far fa-heart"></i>
+          <% if user_signed_in? %>
+            <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
+            <% if found_favorite_for_step  %>
+              <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
+                <i class="fas fa-heart heart-modal"></i>
+              <% end %>
+            <% else %>
+              <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
+                <i class="far fa-heart heart-modal" data-step-id="<%= step.id %>"></i>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_path do %>
+              <i class="far fa-heart heart-modal"></i>
+            <% end %>
+          <% end %>
         </div>
         <!-- <i class="<%= icon_by_category(step.category) %> category"></i> -->
         <div class="modal-body-content">
@@ -26,16 +41,12 @@
 
         <div class="modal-foot">
           <div class="modal-foot-left">
-            <!-- <i class="<%= icon_by_category(step.category) %> category" style="margin-left: 0;"></i> -->
+            <i class="<%= icon_by_category(step.category) %> category" style="margin-left: 0;"></i>
             <p><%= step.category %></p>
           </div>
           <div class="modal-foot-right">
-            <p style="font-weight: bolder;">Rating</p>
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-            <p>5</p>
+            <p>Rating</p>
+            <span><%= step.rating %> / 5</span>
           </div>
         </div>
     </div>
