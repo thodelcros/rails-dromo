@@ -15,6 +15,9 @@
 .search-content-two {
   flex: 0 0 40%;
   border-radius: 40px;
+  border-top-left-radius: none;
+  border-top-right-radius: none;
+  // border-style: none;
   margin-left: -60px;
   height:60px;
   padding-left: 30px;
@@ -24,6 +27,8 @@
 .search-content-three {
   flex: 0 0 40%;
   border-radius: 40px;
+  border-top-left-radius: none;
+  border-top-right-radius: none;
   margin-left: -60px;
   height:60px;
   padding-left: 30px;
