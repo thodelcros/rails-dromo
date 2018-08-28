@@ -3,7 +3,8 @@
   <% if @itineraries.empty? %>
     <div class="index-header-content">
       <h3 style="margin-left: 15px; margin-bottom: 30px;" >No itineraries yet in this country, be the first to post one 😀 </h3>
-      <div class='cloud'></div>
+      <div class="cloud"></div>
+
       <%= form_tag itineraries_path, method: :get do %>
         <div class="search-module">
           <div class="search-bar-main-container">
@@ -23,6 +24,7 @@
     <div class="index-header-content">
       <h1 style="font-weight: bolder; margin-left: 15px"> Itineraries in <%= @itineraries.first.country.capitalize %></h1>
        <div class='cloud'></div>
+       <div class="cloud_two"></div>
       <h2 style="margin-bottom: 90px; color:#CDCDCD; margin-left: 15px">Collect experiences and tips from real travelers !</h2>
 
       <%= form_tag itineraries_path, method: :get do %>
