@@ -14,13 +14,15 @@
   <div class="favorite-cards">
     <div class="row">
     <% @favorites_per_country.each do |country, favorites| %>
-      <div class="col-xs-12 col-sm-3">
-        <div class="favorite-card">
-          <%= image_tag "flags/#{country.downcase}", alt: "#{country.downcase}-flag", width: 70 %>
-          <h4><%= country %></h4>
-          <p><%= pluralize(favorites.count, 'favorite', 'favorites') %></p>
+      <%= link_to country_owner_favorites_path(country) do %>
+        <div class="col-xs-12 col-sm-3">
+          <div class="favorite-card">
+            <%= image_tag "flags/#{country.downcase}", alt: "#{country.downcase}-flag", width: 70 %>
+            <h4><%= country %></h4>
+            <p><%= pluralize(favorites.count, 'favorite', 'favorites') %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
     </div>
   </div>

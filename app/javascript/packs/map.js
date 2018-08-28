@@ -453,6 +453,3 @@ if (mapElement) {
     });
   });
 }
-
-
-// export {drawRoute}
