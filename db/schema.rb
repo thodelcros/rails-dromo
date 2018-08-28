@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_131949) do
     t.integer "duration_in_days"
     t.string "transportation"
     t.string "country"
-    t.boolean "shared"
+    t.boolean "shared", default: "false"
     t.date "start_date"
     t.string "crew"
     t.integer "owner_id"

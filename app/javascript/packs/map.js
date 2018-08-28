@@ -1,5 +1,7 @@
 import GMaps from 'gmaps/gmaps.js';
 import { drawRoute } from '../components/map/drawRoute.js';
+import { listenForPointCreation } from '../components/map/createPoint.js'
+import { listenForPointsClicks } from '../components/map/pointsClicks.js'
 
 const styles = [
     {
@@ -379,8 +381,6 @@ const styles = [
     }
 ];
 
-
-
 const mapElement = document.getElementById('map');
 
 if (mapElement) {
@@ -401,6 +401,8 @@ if (mapElement) {
 
   window.mapObj = map;
 }
+
+listenForPointsClicks();
 
 
 // export {drawRoute}

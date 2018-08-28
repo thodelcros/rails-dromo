@@ -69,14 +69,173 @@
   padding-right: 50px;
 }
 
-// CONTAINER CREATE
+// CONTAINER CREATE STEP
 .create-main-container {
   display: flex;
+  align-items: center;
+  margin: 20px 50px;
 }
 
 .create-form-main-container {
-  flex: 0 0 30%;
+  flex: 0 0 35%;
   display: flex;
   flex-direction: column;
   margin-left: 30px;
+  background-color: white;
+  border-radius: 34px;
+}
+
+// CREATE ITINERARY
+.create-itinerary-main-container {
+  padding: 50px;
+  background-color: white;
+  border-radius: 34px;
+}
+
+.create-itinerary-dates-container {
+  display: flex;
+}
+
+// CONTAINER EDIT STEP
+.edit-step-main-container {
+  margin-top: 35px;
+  margin-left: 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 99;
+  a {
+    text-decoration: none;
+  }
+}
+
+.edit-step-header-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  img {
+    height: 50px;
+    border-radius: 50%;
+  }
+}
+
+.edit-step-search-bar-container {
+  margin: 20px;
+}
+
+.edit-step-content-main {
+  height: 250px;
+  overflow: scroll;
+}
+
+.edit-step-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  span {
+    font-size: 15px;
+    color: $main-blue;
+    transition: 0.3s;
+    &:hover {
+      cursor: pointer;
+      color: $main-orange;
+      transition: 0.3s;
+    }
+  }
+  i {
+    font-size: 1.1em;
+  }
+}
+
+.edit-step-footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+  border-radius: 0 0 12px 12px;
+  background-color: $light-gray;
+  padding: 15px;
+  height: 50px;
+  color: $main-orange;
+  transition: 0.4s;
+  &:hover {
+    background-color: $main-orange;
+    color: $main-blue;
+    transition: 0.4s;
+  }
+}
+
+.edit-step-form-main-container {
+  height: 85vh;
+  overflow: scroll;
+  padding: 35px;
+  width: 650px;
+  margin-top: 50px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 99;
+}
+
+.edit-step-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  img {
+    text-align: center;
+    height: 75px;
+    border-radius: 50%;
+  }
+}
+
+.edit-step-form-content {
+  font-size: 17px;
+}
+
+.edit-step-form-category-rating-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-step-form-photos-content {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  // display: flex;
+  // justify-content: space-around;
+  img {
+    margin-bottom: 20px;
+    border-radius: 12px;
+    height: 130px;
+    width: 100%;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25);
+  }
+  a {
+    color: $main-blue;
+    transition: 0.3s;
+    &:hover {
+      color: $main-orange;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+  }
+}
+
+.edit-step-form-footer {
+  margin-top: 20px;
+  .edit-button {
+    background-color: white;
+  }
 }

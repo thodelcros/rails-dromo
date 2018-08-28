@@ -12,7 +12,7 @@ module ApplicationHelper
       'food' => "fas fa-utensils",
       'nature' => "fas fa-leaf",
       'sport' => "fas fa-bicycle",
-      'party' => "fas fa-cocktail",
+      'party' => "fas fa-glass-martini",
       'housing' => "fas fa-home",
       'vantage point' => "fas fa-eye"
     }
