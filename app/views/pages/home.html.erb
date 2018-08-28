@@ -38,17 +38,22 @@
         <% @latest_itineraries.each do |itinerary| %>
           <div class="col-xs-12 col-md-4 col-sm-6">
             <div class="card-main-container">
-              <div class="card-image" style="background-image: url(<%= cl_image_path itinerary.steps.first.photos.first.picture %>)">
 
-                <div class="card-info-right">
-                  <i class="fas fa-users"></i>
-                  <p><%= itinerary.crew %></p>
-                </div>
-                <div class="card-info">
-                  <i class="far fa-clock"></i>
-                  <p><%= get_duration(itinerary.duration_in_days) %></p>
+            <div>
+              <div class="card-info-right">
+                <i class="fas fa-users"></i>
+                <p>couple</p>
+              </div>
+              <div class="card-info">
+                <i class="far fa-clock"></i>
+                <p><%= get_duration(itinerary.duration_in_days) %></p>
+              </div>
+              <div class="hovereffect card-image">
+                <img class="img-responsive" src="<%= cl_image_path itinerary.steps.first.photos.first.picture %>" alt="">
+                <div class="overlay">
                 </div>
               </div>
+            </div>
 
               <div class="card-btn">
                 <%= link_to itinerary_path(itinerary) do %>

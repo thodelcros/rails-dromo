@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 348px;
-  width: auto;
+  // width: auto;
   border-radius: 34px;
   margin: 40px 20px;
   align-items: center;
@@ -62,7 +62,11 @@
   width: 380px;
   align-items: center;
   position:relative;
+
+  .img-responsive {
+    height: 250px;
   }
+}
 
 .card-content {
   text-align: center;
@@ -90,10 +94,8 @@
 
 .card-info {
   position: absolute;
-  display: flex;
-  right: -10px;
-  top: 17px;
   background-color: white;
+  display: flex;
   border-radius: 34px;
   width: 168px;
   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
@@ -113,12 +115,15 @@
   }
 }
 
+.card-info, .card-info-right {
+  right: -10px;
+  top: 60px;
+}
+
 .card-info-right {
   color: white;
   position: absolute;
   display: flex;
-  right: -20px;
-  top: 17px;
   background-color: $main-blue;
   border-radius: 34px;
   width: 95px;
