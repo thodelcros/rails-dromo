@@ -23,6 +23,7 @@
       <% end %>
     </div>
 
+
   <% else %>
     <div class="index-header-content">
       <h1 style="font-weight: bolder; margin-left: 15px"> Itineraries in <%= @itineraries.first.country.capitalize %></h1>
@@ -38,6 +39,16 @@
               class: "form-control search-bar-index search-content",
               placeholder: "Type a country"
             %>
+             <%= text_field_tag :query,
+              params[:query],
+              class: "form-control search-bar-index search-content-two",
+              placeholder: "Number"
+            %>
+             <%= text_field_tag :query,
+              params[:query],
+              class: "form-control search-bar-index search-content-three",
+              placeholder: "days / weeks / months"
+            %>
             <%= button_tag type: "submit", id: "index-go", class:'button-dromo-index' do %>
               Search
             <% end %>
@@ -46,6 +57,7 @@
       <% end %>
     </div>
   <% end %>
+
   <div class="row" style="margin-top: 40px">
     <div class="cards">
       <% @itineraries.each do |itinerary| %>
