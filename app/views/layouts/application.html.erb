@@ -42,6 +42,11 @@
     <script>
       AOS.init();
     </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function(event) {
+          document.querySelector(".single-item").slick();
+        });
+    </script>
     <%= yield :after_js %>
   </body>
 </html>
