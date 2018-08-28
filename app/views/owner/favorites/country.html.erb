@@ -34,21 +34,29 @@
                   <% if user_signed_in? %>
                     <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
                     <% if found_favorite_for_step  %>
-                      <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
-                        <i class="fas fa-heart heart"></i>
-                      <% end %>
+                      <div class="h-card-icons">
+                        <a data-center-step-id="<%= step.id %>" class="center-link"><i class="fas fa-map-pin" title="Click to see on map"></i></a>
+                        <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
+                          <i class="fas fa-heart heart"></i>
+                        <% end %>
+                      </div>
                     <% else %>
-                      <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
-                        <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
-                      <% end %>
+                      <div class="h-card-icons">
+                        <a data-center-step-id="<%= step.id %>" class="center-link"><i class="fas fa-map-pin" title="Click to see on map"></i></a>
+                        <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
+                          <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
+                        <% end %>
+                      </div>
                     <% end %>
                   <% else %>
-                    <%= link_to new_user_session_path do %>
-                      <i class="far fa-heart heart"></i>
-                    <% end %>
+                    <div class="h-card-icons">
+                      <a data-center-step-id="<%= step.id %>" class="center-link"><i class="fas fa-map-pin" title="Click to see on map"></i></a>
+                      <%= link_to new_user_session_path do %>
+                        <i class="far fa-heart heart"></i>
+                      <% end %>
+                    </div>
                   <% end %>
                 </div>
-
                 <div class="h-card-button">
                   <button type="button" class="h-button" data-toggle="modal" data-target="#myModal-<%= step.id %> ">
                     <p>Discover</p>
