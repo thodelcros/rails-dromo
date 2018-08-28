@@ -41,8 +41,7 @@
               <div class="card-image" style="background-image: url(<%= cl_image_path itinerary.steps.first.photos.first.picture %>)">
 
                 <div class="card-info-right">
-                  <i class="fas fa-users"></i>
-                  <p><%= itinerary.crew %></p>
+                  <i class="<%= icon_by_crew(itinerary.crew) %> crew"></i> <%= itinerary.crew %>
                 </div>
                 <div class="card-info">
                   <i class="far fa-clock"></i>
