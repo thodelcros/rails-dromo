@@ -211,12 +211,13 @@
 .ribbon-shared span {
   position: absolute;
   display: block;
-  width: 225px;
-  padding: 15px 0;
+  height: 30px;
+  width: 200px;
+  padding: 7px 0;
   background-color: $main-orange;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;
-  font: 700 18px/1 $headers-font;
+  font: 700 15px/1 $headers-font;
   text-transform: uppercase;
   text-align: center;
 }
@@ -224,12 +225,13 @@
 .ribbon-pending span {
   position: absolute;
   display: block;
-  width: 225px;
-  padding: 15px 0;
+  height: 30px;
+  width: 200px;
+  padding: 7px 0;
   background-color: $main-blue;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;
-  font: 700 18px/1 $headers-font;
+  font: 700 15px/1 $headers-font;
   text-transform: uppercase;
   text-align: center;
 }
@@ -253,8 +255,8 @@
   left: 0;
 }
 .ribbon-top-left-corner span {
-  right: -25px;
-  top: 30px;
+  right: -14px;
+  top: 47px;
   transform: rotate(-45deg);
 }
 
