@@ -4,7 +4,7 @@
       <%= link_to owner_itineraries_path, class:'arrow-back-home' do %>
         <i class="fas fa-arrow-left"></i>
       <% end %>
-      <h4><%= @itinerary.country %></h4>
+      <h4><%= @itinerary.country.capitalize %></h4>
       <%= cl_image_tag @itinerary.owner.photo %>
     </div>
     <div id='new_point' class="edit-step-search-bar-container">
@@ -17,7 +17,7 @@
       <% @steps.each_with_index do |step, index| %>
         <div class="edit-step-content">
           <span><%= index + 1 %></span>
-          <span id="points" class="js-point" data-step-id="<%= step.id %>"><%= step.city %></span>
+          <span id="points" class="js-point" data-step-id="<%= step.id %>"><%= step.city.capitalize %></span>
           <i class="<%= icon_by_category(step.category) %> category"></i>
         </div>
       <% end %>
