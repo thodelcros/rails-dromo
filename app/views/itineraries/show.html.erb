@@ -18,6 +18,7 @@
               <p><i class="fas fa-map-marker-alt"></i> <%= @itinerary_nbr_step %></p>
               <p><i class="<%= icon_by_transportation(@itinerary.transportation) %> transportation"></i> <%= @itinerary.transportation %></p>
               <p><i class="far fa-clock"></i> <%= @itinerary.duration_in_days %> days</p>
+              <p>by <strong><%= @itinerary.owner.name %></strong></p>
             </div>
           </div>
 
@@ -26,7 +27,6 @@
               <div class="horizontal-card">
                 <div class="h-card-image" style="background-image: url('<%= cl_image_path step.photos.first.picture %>')">
                 </div>
-
                 <div class="h-card-content">
                   <div class="content-header">
                     <span><%= index + 1 %></span>

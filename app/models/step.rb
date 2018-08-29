@@ -8,6 +8,8 @@ class Step < ApplicationRecord
   belongs_to :itinerary
   has_many :photos
 
+  # accepts_nested_attributes_for :photos
+
   enumerize :category, in: ['food', 'nature', 'sport', 'party', 'housing', 'vantage point']
 
   has_many :favorites, dependent: :destroy

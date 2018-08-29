@@ -128,7 +128,6 @@
   }
 }
 
-
 .dash-button {
   color: $main-orange;
 }
@@ -136,3 +135,42 @@
 .action {
   margin-left: 280px;
 }
+
+.edit-button {
+  width: 130px;
+  height: 45px;
+  font-family: $headers-font;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: $main-blue;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    justify-content: center;
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+
+  i {
+  color: $main-orange;
+  }
+  &:hover {
+    background-color: #f0a202;
+    box-shadow: 0px 15px 20px rgba(240, 162, 2, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+    i {
+      color: $main-blue;
+    }
+  }

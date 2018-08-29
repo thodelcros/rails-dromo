@@ -60,3 +60,50 @@
     }
   }
 }
+
+// CREATE ITINERARY
+.create-form-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $pastel-gray;
+  margin: 10px 20px;
+  img {
+    height: 50px;
+    border-radius: 50%;
+  }
+}
+
+.create-form-add {
+  margin: 0 20px;
+  color: $pastel-gray;
+  border-bottom: 1px solid $pastel-gray;
+  padding-bottom: 10px;
+  button {
+    border: 1px solid $pastel-gray;
+    border-radius: 50%;
+    margin-left: 45%;
+    &:hover {
+      color: $main-blue;
+      border-color: $main-blue;
+    }
+  }
+}
+
+.create-form-content {
+  flex: 0 0 auto;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.create-form-content-left {
+  display: flex;
+  flex-direction: column;
+  color: $pastel-gray;
+  p {
+    margin: 0;
+  }
+}
+
+.create-form-bottom {
+  background-color: $light-gray;
+}

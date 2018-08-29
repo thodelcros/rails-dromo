@@ -9,3 +9,8 @@ clickToInput();
 import { imagesSlides } from "../components/slickAnim";
 imagesSlides();
 
+// import { addPhotos } from '../components/addPhotos';
+// addPhotos();
+
+import { initDropzones } from '../components/picturesDropzone';
+initDropzones();
