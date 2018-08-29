@@ -6,7 +6,7 @@
   <div
     id="map"
     style="width: 100%;
-    height: 700px;"
+    height: 100vh;"
     data-markers="<%= @markers.to_json %>"
   ></div>
 
@@ -29,9 +29,6 @@
               <%= f.input :rating, as: :select, collection: 1..5 %>
               <%= f.submit 'Edit', class:'edit-button' %>
             </div>
-            <%# f.simple_fields_for :photos do |p| %>
-              <%# p.input :picture, input_html: { class: 'photos_picture_input_file', type: 'file', name: 'photos[][picture]' } %>
-            <%# end %>
           <% end %>
         </div>
 
