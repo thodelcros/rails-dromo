@@ -4,7 +4,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 function imagesSlides() {
   $(document).ready(function(){
-    $(".slickContainer").slick();
+    $(".slickContainer").slick({
+      dots: true,
+    });
 
     // Pour chaque modal, à son affichage, le carousel affiche la slide 0 qui n'existe pas, donc on le force
     // a afficher la slide 1
