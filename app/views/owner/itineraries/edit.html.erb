@@ -6,51 +6,48 @@
     data-markers="<%= @markers.to_json %>"
   ></div>
 
-    <%= render "shared/edit-step-form" %>
+  <%= render "shared/edit-step-form" %>
 
-    <% @steps.each do |step| %>
-      <div data-step-id="<%= step.id %>" class="edit-step-form-main-container hidden">
+  <% @steps.each do |step| %>
+    <div data-step-id="<%= step.id %>" class="edit-step-form-main-container hidden">
+      <div class="edit-step-form">
+        <div class="edit-step-info">
+          <div class="edit-step-form-header">
 
-        <div class="edit-step-form-header">
-          <%= image_tag "#{@itinerary.country.downcase}.svg" %>
-          <h4><%= step.city %></h4>
+            <%= image_tag "#{@itinerary.country.downcase}.svg" %>
+            <h4><%= step.city %></h4>
+          </div>
+          <%= simple_form_for (["owner", @itinerary, step]) do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :title %>
+            <%= f.input :description %>
+            <div class="edit-step-form-category-rating-content">
+              <%= f.input :category %>
+              <%= f.input :rating %>
+              <%= f.submit 'Edit', class:'edit-button' %>
+            </div>
+            <%# f.simple_fields_for :photos do |p| %>
+              <%# p.input :picture, input_html: { class: 'photos_picture_input_file', type: 'file', name: 'photos[][picture]' } %>
+            <%# end %>
+          <% end %>
         </div>
 
-        <%= simple_form_for (["owner", @itinerary, step]) do |f| %>
+        <div class="edit-step-photos">
+          <% step.photos.with_picture.take(4).each do |photo| %>
+            <%= cl_image_tag photo.picture %>
+            <%# link_to 'delete', owner_photo_path(photo), method: :delete, remote: true %>
+          <% end %>
+        </div>
+      </div>
 
-          <%= f.error_notification %>
-          <%= f.input :title %>
-          <%= f.input :description %>
-          <div class="edit-step-form-category-rating-content">
-            <%= f.input :category %>
-            <%= f.input :rating %>
-          </div>
-
-          <%# f.simple_fields_for :photos do |p| %>
-            <%# p.input :picture, input_html: { class: 'photos_picture_input_file', type: 'file', name: 'photos[][picture]' } %>
-          <%# end %>
-
-          <div class="edit-step-form-footer">
-            <%= f.submit 'Edit', class:'edit-button' %>
+      <div class="edit-step-dropzone">
+        <%= simple_form_for [:owner, step, @photo], html: { class: "dropzone", id: "dropzone-#{step.id}" } do |f| %>
+          <div class="fallback">
+            <input type="file" multiple name="photos[]">
           </div>
         <% end %>
-
-
-
-          <h4>Pictures</h4>
-
-          <% step.photos.with_picture.each do |photo| %>
-            <%= cl_image_tag photo.picture %>
-            <%= link_to 'delete', owner_photo_path(photo), method: :delete, remote: true %>
-          <% end %>
-
-          <%= simple_form_for [:owner, step, @photo], html: { class: "dropzone", id: "dropzone-#{step.id}" } do |f| %>
-            <div class="fallback">
-              <input type="file" multiple name="photos[]">
-            </div>
-          <% end %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
 </div>
-

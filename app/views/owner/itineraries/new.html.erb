@@ -1,13 +1,16 @@
-<div id="create-itinerary" class="create-itinerary-main-container">
-  <%= simple_form_for ["owner", @itinerary] do |f| %>
-    <%= f.error_notification %>
-    <%= f.input :country %>
-    <%= f.input :duration_in_days %>
-    <%= f.input :transportation %>
-    <div class="create-itinerary-dates-container">
-      <%= f.input :start_date %>
-    </div>
-    <%= f.input :crew %>
-    <%= f.submit "Add", method: :post, class: "h-button" %>
-  <% end %>
+
+<div class="create-itinerary-main-container">
+  <div id="create-itinerary">
+    <%= simple_form_for ["owner", @itinerary] do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :country %>
+      <%= f.input :duration_in_days %>
+      <%= f.input :transportation %>
+      <div class="create-itinerary-dates-container">
+        <%= f.input :start_date %>
+      </div>
+      <%= f.input :crew %>
+      <%= f.submit "Add", method: :post, class: "h-button" %>
+    <% end %>
+  </div>
 </div>

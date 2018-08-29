@@ -87,9 +87,13 @@
 
 // CREATE ITINERARY
 .create-itinerary-main-container {
+  position: absolute;
+  top: 20px;
+  left:20px;
   padding: 50px;
   background-color: white;
   border-radius: 34px;
+  width: 100px
 }
 
 .create-itinerary-dates-container {
@@ -172,12 +176,12 @@
   }
 }
 
+
+// EDIT STEP FORM right
 .edit-step-form-main-container {
-  height: 85vh;
-  overflow: scroll;
-  padding: 35px;
-  width: 650px;
-  margin-top: 50px;
+  width: 700px;
+  height: 575px;
+  margin-top: 86px;
   background-color: white;
   border-radius: 12px;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25);
@@ -187,16 +191,22 @@
   z-index: 99;
 }
 
+.edit-step-form {
+  display: flex;
+}
+
+.edit-step-info {
+  flex: 0 0 80%;
+  padding: 20px;
+}
 .edit-step-form-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-bottom: 20px;
+  margin: 15px;
   img {
+    margin-right: 20px;
     text-align: center;
-    height: 75px;
+    height: 50px;
     border-radius: 50%;
   }
 }
@@ -205,31 +215,94 @@
   font-size: 17px;
 }
 
-.edit-step-form-category-rating-content {
-  display: flex;
-  justify-content: space-between;
+.form-group.string.optional.step_title.form-group-valid {
+  label {
+    font-size: 16px;
+  }
+  input {
+    font-size: 15px;
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+    box-shadow: none;
+  }
 }
 
-.edit-step-form-photos-content {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  // display: flex;
-  // justify-content: space-around;
-  img {
-    margin-bottom: 20px;
-    border-radius: 12px;
-    height: 130px;
-    width: 100%;
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25);
+.form-group.text.optional.step_description.form-group-valid {
+  label {
+    font-size: 16px;
+    margin: 0;
   }
-  a {
-    color: $main-blue;
+  textarea {
+    font-size: 15px;
+    border: 0;
+    box-shadow: none;
     transition: 0.3s;
     &:hover {
-      color: $main-orange;
+      background-color: $orange-bg;
+      color: $main-blue;
+      box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
       transition: 0.3s;
-      text-decoration: none;
     }
+  }
+}
+
+.edit-step-form-category-rating-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  }
+  .form-group.select.optional.step_category.form-group-valid {
+    label {
+    font-size: 16px;
+    margin: 0;
+  }
+  .form-control.is-valid.select.optional {
+    font-size: 15px;
+    border: 0;
+    box-shadow: none;
+    transition: 0.3s;
+    &:hover {
+      background-color: $orange-bg;
+      color: $main-blue;
+      box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+    }
+  }
+}
+
+.form-group.integer.optional.step_rating.form-group-valid {
+  label {
+    font-size: 16px;
+    margin: 0;
+  }
+  input {
+    font-size: 15px;
+    border: 0;
+    box-shadow: none;
+    transition: 0.3s;
+    &:hover {
+      background-color: $orange-bg;
+      color: $main-blue;
+      box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+    }
+  }
+}
+
+.edit-step-photos {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  flex: 0 0 20%;
+  img {
+    margin-right: -20px;
+    height: 85px;
+    width: 100px;
+    margin: 5px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25);
   }
 }
 
