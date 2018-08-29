@@ -53,11 +53,30 @@
           <div class="card-content">
             <h3><%= itinerary.country %></h3>
             <h6><i class="fas fa-map-pin"></i> <%= itinerary.steps.count %> steps</h6>
-            <p>by <%= itinerary.owner.name %></p>
+            <div class="content-footer-container">
+              <div class="content-icons">
+                <%= link_to owner_itinerary_path(itinerary), method: :delete do %>
+                  <p><i class="far fa-trash-alt"></i></p>
+                <% end %>
+                <%= link_to edit_owner_itinerary_path(itinerary) do %>
+                  <p><i class="far fa-edit"></i></p>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     <% end %>
+      <div class="row">
+        <div class="col-xs-12 col-md-4 col-sm-6">
+          <div class="card-create-container">
+            <%= link_to new_owner_itinerary_path do %>
+              <h3 class="text-center">Create a new itinerary 🤘</h3>
+              <h1 class="text-center">+</h1>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
