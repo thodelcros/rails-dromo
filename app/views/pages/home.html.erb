@@ -8,10 +8,12 @@
       <h1>Get inspiration for your travels</h1>
       <h2 class="subtitle">Discover amazing itineraries from <br>travelers' experiences</br></h2>
       <div class="header-buttons">
+        <%= link_to new_owner_itinerary_path do  %>
         <button class="button-dromo button-create">
           <i class="far fa-compass"></i>
           <p>Create</p>
         </button>
+        <% end %>
         <div class="search-home">
           <%= form_tag itineraries_path, method: :get do %>
             <%= text_field_tag :query,

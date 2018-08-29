@@ -10,8 +10,8 @@
       <div class="col-xs-12">
           <div class="title-container">
 
-            <h2><%= @itinerary.country %></h2>
-            <%= image_tag "#{@itinerary.country.downcase}.svg", alt: @itinerary.country %>
+            <h2><%= @itinerary.country.capitalize %></h2>
+            <%= image_tag "flags/#{@itinerary.country.downcase}.png", alt: @itinerary.country %>
 
             <div class="title-container-info">
               <p><i class="<%= icon_by_crew(@itinerary.crew) %> crew"></i> <%= @itinerary.crew %></p>

@@ -17,8 +17,7 @@
       <div class="edit-step-form">
         <div class="edit-step-info">
           <div class="edit-step-form-header">
-
-            <%= image_tag "#{@itinerary.country.downcase}.svg" %>
+            <%= image_tag "flags/#{@itinerary.country.downcase}.png" %>
             <h4><%= step.city %></h4>
           </div>
           <%= simple_form_for (["owner", @itinerary, step]) do |f| %>
@@ -36,21 +35,21 @@
           <% end %>
         </div>
 
-        <div class="edit-step-photos">
-          <% step.photos.with_picture.take(4).each do |photo| %>
-            <%= cl_image_tag photo.picture %>
-            <%# link_to 'delete', owner_photo_path(photo), method: :delete, remote: true %>
+        <div class="edit-step-dropzone">
+          <%= simple_form_for [:owner, step, @photo], html: { class: "dropzone", id: "dropzone-#{step.id}" } do |f| %>
+            <div class="fallback">
+              <input type="file" multiple name="photos[]">
+            </div>
           <% end %>
         </div>
       </div>
+        <div class="edit-step-photos">
+          <% step.photos.with_picture.take(5).each do |photo| %>
+            <%= cl_image_tag photo.picture %>
+            <%= link_to 'Delete', owner_photo_path(photo), method: :delete, remote: true %>
+          <% end %>
+        </div>
 
-      <div class="edit-step-dropzone">
-        <%= simple_form_for [:owner, step, @photo], html: { class: "dropzone", id: "dropzone-#{step.id}" } do |f| %>
-          <div class="fallback">
-            <input type="file" multiple name="photos[]">
-          </div>
-        <% end %>
-      </div>
     </div>
   <% end %>
 
