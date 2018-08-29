@@ -25,7 +25,11 @@
                 <p><%= get_duration(itinerary.duration_in_days) %></p>
               </div>
               <div class="hovereffect card-image">
-                <img class="img-responsive" src="<%= cl_image_path itinerary.steps.first.photos.first.picture %>" alt="">
+                <% if itinerary.steps.first.photos.first %>
+                  <img class="img-responsive" src="<%= cl_image_path itinerary.steps.first.photos.first.picture %>" alt="">
+                <% else %>
+                  <%= image_tag "terre.jpg", class: "img-responsive" %>
+                <% end %>
                 <% if itinerary.shared %>
                   <div class="overlay">
                     <div class="ribbon-shared ribbon-top-left-corner">
