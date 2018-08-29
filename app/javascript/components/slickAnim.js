@@ -15,7 +15,7 @@ function imagesSlides() {
       const modalId = $(this).closest(".modal").attr('id');
 
       $(`#${modalId}`).on('show.bs.modal', function (e) {
-        $(".slickContainer").slick("slickGoTo", 1);
+        $(".slickContainer").slick("slickGoTo", 0);
       });
     });
   });
