@@ -1,16 +1,24 @@
+import "slick-carousel";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 function imagesSlides() {
-  document.addEventListener("DOMContentLoaded", function(event) {
-    document.querySelector(".slickContainer").slick({
-      slide: 'div',
-      prevArrow: '<div class="slick-prev"><i class="fa fa-chevron-left"></i></div>',
-      nextArrow: '<div class="slick-next"><i class="fa fa-chevron-right"></i></div>',
+  $(document).ready(function(){
+    $(".slickContainer").slick({
       dots: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
+    });
+
+    // Pour chaque modal, à son affichage, le carousel affiche la slide 0 qui n'existe pas, donc on le force
+    // a afficher la slide 1
+
+    $(".slickContainer").each(function() {
+      const modalId = $(this).closest(".modal").attr('id');
+
+      $(`#${modalId}`).on('show.bs.modal', function (e) {
+        $(".slickContainer").slick("slickGoTo", 1);
+      });
     });
   });
 }
 
 export { imagesSlides };
-
