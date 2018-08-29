@@ -14,4 +14,12 @@ class Owner::ItinerariesController < ApplicationController
       format.js  # <-- will render `app/views/reviews/create.js.erb`
     end
   end
+
+  def share
+    @itinerary = Itinerary.find(params[:id])
+
+    @itinerary.shared = true
+
+    redirect_to owner_itineraries_path
+  end
 end
