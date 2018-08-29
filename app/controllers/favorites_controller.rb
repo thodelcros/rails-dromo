@@ -24,5 +24,4 @@ class FavoritesController < ApplicationController
       format.js  # <-- will render `app/views/reviews/create.js.erb`
     end
   end
-
 end

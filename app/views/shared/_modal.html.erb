@@ -2,9 +2,9 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-title" id="myModalLabel">
-        <div class="single-item">
+        <div class="slickContainer">
           <% step.photos.each do |photo| %>
-            <div><%= cl_image_tag photo.picture, height: 300 %></div>
+            <div class="slickItem"><%= cl_image_tag photo.picture, height: 300 %></div>
           <% end %>
         </div>
       </div>
