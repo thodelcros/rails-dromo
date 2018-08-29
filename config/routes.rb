@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
@@ -18,6 +18,12 @@ Rails.application.routes.draw do
 
       resources :steps, only: [:create, :update, :destroy]
     end
+
+    resources :steps, only: [] do
+      resources :photos, only: [:create]
+    end
+
+    resources :photos, only: [:destroy]
 
     resources :favorites, only: [:index, :destroy] do
       collection do
