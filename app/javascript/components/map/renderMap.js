@@ -1,5 +1,5 @@
 import GMaps from 'gmaps/gmaps.js';
-import { drawRoute } from '../components/map/drawRoute.js';
+import { drawRoute } from './drawRoute.js';
 import { listenForPointCreation } from '../components/map/createPoint.js'
 import { listenForPointsClicks } from '../components/map/pointsClicks.js'
 
@@ -381,28 +381,101 @@ const styles = [
     }
 ];
 
-const mapElement = document.getElementById('map');
+function renderMap(drawRouteFlag) {
+  const mapElement = document.getElementById('map');
 
-if (mapElement) {
-  const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
-  const markers = JSON.parse(mapElement.dataset.markers);
-  map.addMarkers(markers);
+  if (mapElement) {
+    const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
+    const markers = JSON.parse(mapElement.dataset.markers).map((marker) => {
 
-  if (markers.length === 0) {
-    map.setZoom(2);
-  } else if (markers.length === 1) {
-    map.setCenter(markers[0].lat, markers[0].lng);
-    map.setZoom(14);
-  } else {
-    map.fitLatLngBounds(markers);
+      let markerCorrectlyPositionned = {
+        lat: marker.lat,
+        lng: marker.lng,
+        label: marker.label,
+        icon: {
+          url: marker.icon.url,
+          // scaledSize: new google.maps.Size(marker.icon.scaledSize[0], marker.icon.scaledSize[1]),
+          origin: new google.maps.Point(marker.icon.origin[0], marker.icon.origin[1]),
+          // anchor: new google.maps.Point(marker.icon.anchor[0], marker.icon.anchor[1]),
+          labelOrigin: new google.maps.Point(marker.icon.labelOrigin[0], marker.icon.labelOrigin[1])
+        }
+      }
+
+      return markerCorrectlyPositionned;
+    });
+
+    const mapMarkers = map.addMarkers(markers);
+
+    if (markers.length === 0) {
+      map.setZoom(2);
+    } else if (markers.length === 1) {
+      map.setCenter(markers[0].lat, markers[0].lng);
+      map.setZoom(14);
+    } else {
+      map.fitLatLngBounds(markers);
+    }
+
+    if (drawRouteFlag) {
+      drawRoute(map, markers);
+    }
+
+
+    map.addStyle({
+      styles: styles,
+      mapTypeId: 'map_style'
+    });
+
+    map.setStyle('map_style');
+
+    window.mapObj = map;
+
+
+    let stepCards = document.querySelectorAll('.horizontal-card');
+    let centerLinks = document.querySelectorAll(".center-link");
+
+
+    mapMarkers.forEach((marker) => {
+      marker.addListener('mouseover', function() {
+        let stepCardIndex = Array.prototype.indexOf.call(mapMarkers, marker);
+        let stepCard      = stepCards[stepCardIndex];
+
+        stepCard.classList.add('card-hovered');
+      });
+
+      marker.addListener('mouseout', function() {
+        let stepCardIndex = Array.prototype.indexOf.call(mapMarkers, marker);
+        let stepCard      = stepCards[stepCardIndex];
+
+        stepCard.classList.remove('card-hovered');
+      });
+    });
+
+
+    stepCards.forEach((stepCard) => {
+      stepCard.addEventListener('mouseenter', (event) => {
+        let markerIndex = Array.prototype.indexOf.call(stepCards, stepCard);
+        let marker = mapMarkers[markerIndex];
+        marker.setIcon({url: 'https://res.cloudinary.com/thodelcros/image/upload/v1535387727/pin.svg', labelOrigin: new google.maps.Point(13, 13)});
+      });
+
+      stepCard.addEventListener('mouseleave', (event) => {
+        let markerIndex = Array.prototype.indexOf.call(stepCards, stepCard);
+        let marker = mapMarkers[markerIndex];
+        marker.setIcon({url: 'https://res.cloudinary.com/thodelcros/image/upload/v1535377577/pin-active.svg', labelOrigin: new google.maps.Point(13, 13)});
+      });
+    });
+
+    centerLinks.forEach((centerLink) => {
+      centerLink.addEventListener('click', (event) => {
+        let markerIndex = Array.prototype.indexOf.call(centerLinks, centerLink);
+        let marker = markers[markerIndex];
+        map.setCenter(marker.lat, marker.lng);
+        map.setZoom(10);
+      });
+    });
+
+    listenForPointsClicks();
   }
-
-  drawRoute(map, markers, styles);
-
-  window.mapObj = map;
 }
 
-listenForPointsClicks();
-
-
-// export {drawRoute}
+export { renderMap };

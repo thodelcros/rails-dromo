@@ -14,9 +14,9 @@
             <%= image_tag "#{@itinerary.country.downcase}.svg", alt: @itinerary.country %>
 
             <div class="title-container-info">
-              <p><i class="fas fa-users"></i> <%= @itinerary.crew %></p>
+              <p><i class="<%= icon_by_crew(@itinerary.crew) %> crew"></i> <%= @itinerary.crew %></p>
               <p><i class="fas fa-map-marker-alt"></i> <%= @itinerary_nbr_step %></p>
-              <p><i class="fas fa-toolbox"></i> <%= @itinerary.transportation %></p>
+              <p><i class="<%= icon_by_transportation(@itinerary.transportation) %> transportation"></i> <%= @itinerary.transportation %></p>
               <p><i class="far fa-clock"></i> <%= @itinerary.duration_in_days %> days</p>
             </div>
           </div>
@@ -33,18 +33,32 @@
                     <i class="<%= icon_by_category(step.category) %> category"></i>
                   </div>
                   <p><%= step.description.truncate(100) %></p>
-                  <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
-                  <% if found_favorite_for_step  %>
-                    <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
-                      <i class="fas fa-heart heart"></i>
+                  <% if user_signed_in? %>
+                    <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
+                    <% if found_favorite_for_step  %>
+                      <div class="h-card-icons">
+                        <a data-center-step-id="<%= step.id %>" class="center-link"><i class="fas fa-map-pin" title="Click to see on map"></i></a>
+                        <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
+                          <i class="fas fa-heart heart"></i>
+                        <% end %>
+                      </div>
+                    <% else %>
+                      <div class="h-card-icons">
+                        <a data-center-step-id="<%= step.id %>" class="center-link"><i class="fas fa-map-pin" title="Click to see on map"></i></a>
+                        <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
+                          <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
+                        <% end %>
+                      </div>
                     <% end %>
                   <% else %>
-                    <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
-                      <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
-                    <% end %>
+                    <div class="h-card-icons">
+                      <a data-center-step-id="<%= step.id %>" class="center-link"><i class="fas fa-map-pin" title="Click to see on map"></i></a>
+                      <%= link_to new_user_session_path do %>
+                        <i class="far fa-heart heart"></i>
+                      <% end %>
+                    </div>
                   <% end %>
                 </div>
-
                 <div class="h-card-button">
                   <button type="button" class="h-button" data-toggle="modal" data-target="#myModal-<%= step.id %> ">
                     <p>Discover</p>
@@ -58,7 +72,12 @@
         </div>
       </div>
     </div>
-
 </div>
 
+<% content_for :meta_title, "#{@itinerary.country} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @itinerary.steps.first.description %>
+<% content_for :meta_image, cl_image_path(@itinerary.steps.first.photos.first.picture) %>
 
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag 'mapWithRoutes' %>
+<% end %>

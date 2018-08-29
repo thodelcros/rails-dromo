@@ -3,6 +3,7 @@
   margin: 50px;
   background-color: white;
   border-radius: 34px;
+  min-height: 90vh;
 }
 
 .itineraries-container {
@@ -311,4 +312,9 @@
   .edit-button {
     background-color: white;
   }
+}
+
+.index-header-content {
+  padding-left: 63px;
+  padding-top: 67px;
 }

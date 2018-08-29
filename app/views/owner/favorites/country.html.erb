@@ -1,0 +1,79 @@
+<div class="main-container">
+  <div id="map"
+  style="width: 100%;
+  height: 100vh;"
+  data-markers="<%= @markers.to_json %>">
+  </div>
+  <div class="container">
+    <%= render 'shared/navbar-home' %>
+    <div class="row">
+      <div class="col-xs-12">
+          <div class="title-container">
+
+            <h2><span style="font-weight: lighter;">Favorites in </span><span style="font-weight: bold;"><%= @country %></span></h2>
+            <%= image_tag "#{@country.downcase}.svg", alt: @country %>
+
+            <div class="title-container-info">
+              <p><i class="fas fa-map-marker-alt" style="color: #5D6A80"></i> <span style="color: #F0A202; font-weight: bold; font-size: 20px;"><%= @steps.count %></span> <%= "step".pluralize(@steps.count) %> from <span style="color: #F0A202; font-weight: bold; font-size: 20px;"><%= @itineraries.count %></span> <%= "itinerary".pluralize(@itineraries.count) %></p>
+            </div>
+          </div>
+
+          <% @steps.each_with_index do |step, index| %>
+            <div class="h-card-container"style="height: 255px;">
+              <div class="horizontal-card">
+                <div class="h-card-image" style="background-image: url('<%= cl_image_path step.photos.first.picture %>')">
+                </div>
+
+                <div class="h-card-content">
+                  <div class="content-header">
+                    <span><%= index + 1 %></span>
+                    <h5><%= step.title.truncate(20) %></h5>
+                    <i class="<%= icon_by_category(step.category) %> category"></i>
+                  </div>
+                  <p><%= step.description.truncate(100) %></p>
+                  <% if user_signed_in? %>
+                    <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
+                    <% if found_favorite_for_step  %>
+                      <div class="h-card-icons">
+                        <a data-center-step-id="<%= step.id %>" class="center-link"><i class="fas fa-map-pin" title="Click to see on map"></i></a>
+                        <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
+                          <i class="fas fa-heart heart"></i>
+                        <% end %>
+                      </div>
+                    <% else %>
+                      <div class="h-card-icons">
+                        <a data-center-step-id="<%= step.id %>" class="center-link"><i class="fas fa-map-pin" title="Click to see on map"></i></a>
+                        <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
+                          <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  <% else %>
+                    <div class="h-card-icons">
+                      <a data-center-step-id="<%= step.id %>" class="center-link"><i class="fas fa-map-pin" title="Click to see on map"></i></a>
+                      <%= link_to new_user_session_path do %>
+                        <i class="far fa-heart heart"></i>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="h-card-button">
+                  <button type="button" class="h-button" data-toggle="modal" data-target="#myModal-<%= step.id %> ">
+                    <p>Discover</p>
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <%= render 'shared/modal-favorites', step: step %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>
+
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag 'mapWithoutRoutes' %>
+<% end %>
+
+

@@ -70,7 +70,7 @@
 
 .horizontal-card {
   position: relative;
-
+  transition: all .4s ease;
 }
 
 .h-card-image {
@@ -107,7 +107,15 @@
   }
   p {
     font-weight: lighter;
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 300;
+    font-family: $headers-font !important;
+    line-height: normal;
+    font-size: 18px;
+    text-align: justify;
+
+    color: $secondart-blue-light;
+    padding: 0px 5px;
   }
 }
 
@@ -116,6 +124,16 @@
   align-items: center;
   justify-content: space-between;
   padding-bottom: 20px;
+  padding-right: 7px;
+  h5 {
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 24px;
+    text-align: justify;
+
+    color: $secondart-blue-light;
+  }
 }
 
 .h-card-button {
@@ -132,10 +150,20 @@
 }
 
 .heart {
-  position: absolute;
   color: $main-orange;
-  z-index: 10;
   font-size: 20px;
+}
+
+.h-card-icons {
+  position: absolute;
+  z-index: 10;
   right: 20px;
   bottom: 20px;
+  .center-link {
+    text-decoration: none;
+    color: $secondary-blue;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 10px;
+  }
 }
