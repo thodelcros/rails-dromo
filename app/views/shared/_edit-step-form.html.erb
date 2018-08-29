@@ -1,6 +1,9 @@
 <div id="over_map">
   <div class="edit-step-main-container">
     <div class="edit-step-header-container">
+      <%= link_to root_path, class:'arrow-back-home' do %>
+        <i class="fas fa-arrow-left"></i>
+      <% end %>
       <h4><%= @itinerary.country %></h4>
       <%= cl_image_tag @itinerary.owner.photo %>
     </div>
