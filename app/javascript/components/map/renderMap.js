@@ -433,23 +433,23 @@ function renderMap(drawRouteFlag) {
     let stepCards = document.querySelectorAll('.horizontal-card');
     let centerLinks = document.querySelectorAll(".center-link");
 
+    if (stepCards.length > 0) {
+      mapMarkers.forEach((marker) => {
+        marker.addListener('mouseover', function() {
+          let stepCardIndex = Array.prototype.indexOf.call(mapMarkers, marker);
+          let stepCard      = stepCards[stepCardIndex];
 
-    mapMarkers.forEach((marker) => {
-      marker.addListener('mouseover', function() {
-        let stepCardIndex = Array.prototype.indexOf.call(mapMarkers, marker);
-        let stepCard      = stepCards[stepCardIndex];
+          stepCard.classList.add('card-hovered');
+        });
 
-        stepCard.classList.add('card-hovered');
+        marker.addListener('mouseout', function() {
+          let stepCardIndex = Array.prototype.indexOf.call(mapMarkers, marker);
+          let stepCard      = stepCards[stepCardIndex];
+
+          stepCard.classList.remove('card-hovered');
+        });
       });
-
-      marker.addListener('mouseout', function() {
-        let stepCardIndex = Array.prototype.indexOf.call(mapMarkers, marker);
-        let stepCard      = stepCards[stepCardIndex];
-
-        stepCard.classList.remove('card-hovered');
-      });
-    });
-
+    }
 
     stepCards.forEach((stepCard) => {
       stepCard.addEventListener('mouseenter', (event) => {
