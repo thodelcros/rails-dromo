@@ -1,7 +1,7 @@
 import GMaps from 'gmaps/gmaps.js';
 import { drawRoute } from './drawRoute.js';
-import { listenForPointCreation } from '../components/map/createPoint.js'
-import { listenForPointsClicks } from '../components/map/pointsClicks.js'
+import { listenForPointCreation } from './createPoint.js'
+import { listenForPointsClicks } from './pointsClicks.js'
 
 const styles = [
     {

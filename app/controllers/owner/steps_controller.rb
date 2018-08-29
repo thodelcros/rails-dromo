@@ -22,7 +22,7 @@ class Owner::StepsController < ApplicationController
   end
 
   def params_step
-    params.require(:step).permit(:city, :title, :description, :category, photos_attributes: [:picture])
+    params.require(:step).permit(:city, :title, :description, :category, :rating)
   end
 
 end

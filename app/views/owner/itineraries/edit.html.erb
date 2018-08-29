@@ -1,3 +1,7 @@
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag 'mapWithRoutes' %>
+<% end %>
+
 <div id="map-wrapper">
   <div
     id="map"
@@ -23,7 +27,7 @@
             <%= f.input :description %>
             <div class="edit-step-form-category-rating-content">
               <%= f.input :category %>
-              <%= f.input :rating %>
+              <%= f.input :rating, as: :select, collection: 1..5 %>
               <%= f.submit 'Edit', class:'edit-button' %>
             </div>
             <%# f.simple_fields_for :photos do |p| %>

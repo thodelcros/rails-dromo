@@ -25,14 +25,24 @@ class Owner::ItinerariesController < ApplicationController
 
   def edit
     @itinerary = Itinerary.find(params[:id])
-    @steps = Step.where(itinerary: @itinerary)
+    @steps = Step.where(itinerary: @itinerary).order(:created_at)
 
     @step = Step.new
     @markers = @steps.map.with_index do |step, index|
       {
         lat: step.latitude,
         lng: step.longitude,
-        label: (index + 1).to_s
+        label: {
+          text: (index + 1).to_s,
+          color: "#011638",
+          fontSize: "16px",
+          fontWeight: "bold"
+        },
+        icon: {
+          url: "https://res.cloudinary.com/thodelcros/image/upload/v1535377577/pin-active.svg",
+          origin: [0, 0],
+          labelOrigin: [13,13]
+        }
       }
     end
 
