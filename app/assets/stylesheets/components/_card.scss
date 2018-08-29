@@ -151,6 +151,31 @@
   }
 }
 
+.card-create-container {
+  color: $main-orange;
+  margin: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 50px;
+  top: 25px;
+  border-radius: 34px;
+  height: 250px;
+  transition: all .2s ease;
+  h1 {
+    margin: 0;
+  }
+  h3 {
+    color: $pastel-gray;
+  }
+  &:hover {
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.10);
+    transform: scale(1.1);
+  }
+}
+
 .cloud, .cloud_two{
   animation: move 6s ease infinite;
   border-radius: 50%;
