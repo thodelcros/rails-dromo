@@ -88,20 +88,170 @@
 
 // CREATE ITINERARY
 .create-itinerary-main-container {
-  position: absolute;
-  top: 20px;
-  left:20px;
-  padding: 50px;
+  margin-top: 35px;
+  margin-left: 30px;
   background-color: white;
-  border-radius: 34px;
-  width: 100px
+  border-radius: 12px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  z-index: 99;
+  a {
+    text-decoration: none;
+  }
 }
 
-.create-itinerary-dates-container {
+.create-itinerary-header {
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  img {
+    height: 50px;
+    border-radius: 50%;
+  }
 }
 
-// CONTAINER EDIT STEP
+.create-itinerary-content-form {
+  margin: 20px;
+}
+
+.form-group.string.optional.itinerary_country {
+  label {
+    font-size: 16px;
+  }
+  input {
+    font-size: 15px;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    box-shadow: none;
+    transition: 0.4s;
+    &:hover {
+      box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
+      background-color: #F4F4F4;
+      color: $main-blue;
+      transition: 0.4s;
+    }
+  }
+}
+
+.form-group.integer.optional.itinerary_duration_in_days {
+  label {
+    font-size: 16px;
+  }
+  input {
+    font-size: 15px;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    box-shadow: none;
+    &:hover {
+      box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
+      background-color: #F4F4F4;
+      color: $main-blue;
+      transition: 0.4s;
+    }
+  }
+}
+
+
+.form-group.date.optional.itinerary_start_date {
+  label {
+    font-size: 16px;
+  }
+}
+.d-flex.flex-row.justify-content-between.align-items-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  select {
+    font-size: 15px;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    box-shadow: none;
+    &:hover {
+      box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
+      background-color: #F4F4F4;
+      color: $main-blue;
+      transition: 0.4s;
+    }
+  }
+}
+
+.create-itinerary-transport-crew {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .form-group.select.optional.itinerary_transportation {
+    label {
+      font-size: 16px;
+    }
+    select {
+      font-size: 15px;
+      border-top: 0;
+      border-right: 0;
+      border-left: 0;
+      box-shadow: none;
+      &:hover {
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
+        background-color: #F4F4F4;
+        color: $main-blue;
+        transition: 0.4s;
+      }
+    }
+  }
+  .form-group.select.optional.itinerary_crew {
+    label {
+      font-size: 16px;
+    }
+    select {
+      font-size: 15px;
+      border-top: 0;
+      border-right: 0;
+      border-left: 0;
+      box-shadow: none;
+      &:hover {
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
+        background-color: #F4F4F4;
+        color: $main-blue;
+        transition: 0.4s;
+      }
+    }
+  }
+}
+
+.create-itinerary-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+  border-radius: 0 0 12px 12px;
+  background-color: $light-gray;
+  padding: 15px;
+  height: 50px;
+  color: $main-orange;
+  transition: 0.4s;
+  width: 363px;
+  height: 75px;
+  border: 0;
+  a {
+    color: $main-blue;
+  }
+  &:hover {
+    background-color: $main-orange;
+    color: $main-blue;
+    transition: 0.4s;
+  }
+}
+
+// CONTAINER EDIT STEP LEFT
 .edit-step-main-container {
   margin-top: 35px;
   margin-left: 30px;
@@ -120,6 +270,7 @@
 .edit-step-header-container {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding: 15px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -160,7 +311,8 @@
 .edit-step-footer-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+
   padding-left: 20px;
   padding-right: 20px;
   margin-top: 20px;
@@ -168,37 +320,48 @@
   background-color: $light-gray;
   padding: 15px;
   height: 50px;
-  color: $main-orange;
-  transition: 0.4s;
-  &:hover {
-    background-color: $main-orange;
+}
+
+.edit-step-footer-container-links {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: space-around;
+  a {
     color: $main-blue;
+    font-size: 16px;
     transition: 0.4s;
+    &:hover {
+      color: $main-orange;
+      transition: 0.4s;
+    }
   }
 }
 
 
-// EDIT STEP FORM right
+// EDIT STEP FORM RIGHT
 .edit-step-form-main-container {
   width: 700px;
-  height: 575px;
+  height: 595px;
   margin-top: 86px;
   background-color: white;
   border-radius: 12px;
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 40px;
   z-index: 99;
+  display: flex;
 }
 
 .edit-step-form {
   display: flex;
+  flex-direction: column;
+  flex: 0 0 80%;
 }
 
 .edit-step-info {
-  flex: 0 0 80%;
-  padding: 20px;
+  flex: 0 0 60%;
+  padding: 15px;
 }
 .edit-step-form-header {
   display: flex;
@@ -226,13 +389,37 @@
     border-left: 0;
     border-top: 0;
     box-shadow: none;
+    &:hover {
+      background-color: $light-gray;
+      color: $main-blue;
+      box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+    }
+  }
+}
+
+.form-group.string.optional.step_title {
+  label {
+    font-size: 16px;
+  }
+  input {
+    font-size: 15px;
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+    box-shadow: none;
+    &:hover {
+      background-color: $light-gray;
+      color: $main-blue;
+      box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+    }
   }
 }
 
 .form-group.text.optional.step_description.form-group-valid {
   label {
     font-size: 16px;
-    margin: 0;
   }
   textarea {
     font-size: 15px;
@@ -240,7 +427,25 @@
     box-shadow: none;
     transition: 0.3s;
     &:hover {
-      background-color: $orange-bg;
+      background-color: $light-gray;
+      color: $main-blue;
+      box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+    }
+  }
+}
+
+.form-group.text.optional.step_description {
+  label {
+    font-size: 16px;
+  }
+  textarea {
+    font-size: 15px;
+    border: 0;
+    box-shadow: none;
+    transition: 0.3s;
+    &:hover {
+      background-color: $light-gray;
       color: $main-blue;
       box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
       transition: 0.3s;
@@ -252,19 +457,20 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  }
-  .form-group.select.optional.step_category.form-group-valid {
-    label {
+}
+
+.form-group.select.optional.step_category.form-group-valid {
+  label {
     font-size: 16px;
-    margin: 0;
   }
-  .form-control.is-valid.select.optional {
+  select {
     font-size: 15px;
-    border: 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     box-shadow: none;
     transition: 0.3s;
     &:hover {
-      background-color: $orange-bg;
+      background-color: $light-gray;
       color: $main-blue;
       box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
       transition: 0.3s;
@@ -272,18 +478,56 @@
   }
 }
 
-.form-group.integer.optional.step_rating.form-group-valid {
+.form-group.select.optional.step_category {
   label {
     font-size: 16px;
-    margin: 0;
   }
-  input {
+  select {
     font-size: 15px;
-    border: 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     box-shadow: none;
     transition: 0.3s;
     &:hover {
-      background-color: $orange-bg;
+      background-color: $light-gray;
+      color: $main-blue;
+      box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+    }
+  }
+}
+
+.form-group.select.optional.step_rating.form-group-valid {
+  label {
+    font-size: 16px;
+  }
+  select {
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: none;
+    transition: 0.3s;
+    &:hover {
+      background-color: $light-gray;
+      color: $main-blue;
+      box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+    }
+  }
+}
+
+.form-group.select.optional.step_rating {
+  label {
+    font-size: 16px;
+  }
+  select {
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: none;
+    transition: 0.3s;
+    &:hover {
+      background-color: $light-gray;
       color: $main-blue;
       box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
       transition: 0.3s;
@@ -295,15 +539,25 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-
+  margin-right: -20px;
   flex: 0 0 20%;
   img {
-    margin-right: -20px;
-    height: 85px;
-    width: 100px;
+    height: 105px;
+    width: 120px;
     margin: 5px;
     border-radius: 12px;
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.25);
+  }
+  a {
+    font-size: 12px;
+    color: $main-blue;
+    transition: 0.3s;
+    &:hover {
+      text-decoration: none;
+      font-size: 16px;
+      color: $main-orange;
+      transition: 0.3s;
+    }
   }
 }
 
@@ -311,6 +565,18 @@
   margin-top: 20px;
   .edit-button {
     background-color: white;
+  }
+}
+
+.simple_form.dropzone.dz-clickable {
+  border-top: 1px solid #ccc;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  span {
+    font-size: 16px;
   }
 }
 

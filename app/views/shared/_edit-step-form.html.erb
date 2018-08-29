@@ -1,6 +1,9 @@
 <div id="over_map">
   <div class="edit-step-main-container">
     <div class="edit-step-header-container">
+      <%= link_to owner_itineraries_path, class:'arrow-back-home' do %>
+        <i class="fas fa-arrow-left"></i>
+      <% end %>
       <h4><%= @itinerary.country %></h4>
       <%= cl_image_tag @itinerary.owner.photo %>
     </div>
@@ -19,11 +22,11 @@
         </div>
       <% end %>
     </div>
-    <%= link_to itinerary_path(@itinerary) do %>
-      <div class="edit-step-footer-container">
-        <span>Edit</span>
-        <i class="fas fa-arrow-right"></i>
+    <div class="edit-step-footer-container">
+      <div class="edit-step-footer-container-links">
+        <%= link_to 'Save', owner_itineraries_path %>
+        <%= link_to 'Publish', share_owner_itinerary_path(@itinerary) %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>

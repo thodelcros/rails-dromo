@@ -36,7 +36,7 @@ class Owner::ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.owner = current_user
     if @itinerary.save
-      redirect_to edit_owner_itinerary_path
+      redirect_to edit_owner_itinerary_path(@itinerary)
     else
       render :new
     end
