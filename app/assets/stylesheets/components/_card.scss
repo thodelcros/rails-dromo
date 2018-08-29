@@ -254,15 +254,19 @@
 }
 
 
-.ribbon-shared {
+.ribbon-shared, .ribbon-pending {
   width: 150px;
   height: 150px;
   overflow: hidden;
   position: absolute;
 }
 
+
 .ribbon-shared::before,
-.ribbon-shared::after {
+.ribbon-shared::after,
+.ribbon-pending::before,
+.ribbon-pending::after
+ {
   position: absolute;
   z-index: -1;
   content: '';

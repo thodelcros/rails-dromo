@@ -25,7 +25,7 @@
     <div class="edit-step-footer-container">
       <div class="edit-step-footer-container-links">
         <%= link_to 'Save', owner_itineraries_path %>
-        <%= link_to 'Publish', share_owner_itinerary_path(@itinerary) %>
+        <%= link_to 'Publish', share_owner_itinerary_path(@itinerary), method: :patch %>
       </div>
     </div>
   </div>
