@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_22_131949) do
+ActiveRecord::Schema.define(version: 2018_08_29_085120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_131949) do
     t.integer "duration_in_days"
     t.string "transportation"
     t.string "country"
-    t.boolean "shared", default: "false"
+    t.boolean "shared", default: false
     t.date "start_date"
     t.string "crew"
     t.integer "owner_id"

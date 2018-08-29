@@ -75,6 +75,8 @@
 
 .card-content {
   text-align: center;
+  width: 100%;
+  padding: 0 30px;
   p {
     // font-weight: lighter;
     color: $main-orange;
@@ -94,6 +96,36 @@
     font-size: 36px;
     text-align: center;
     color: $secondart-blue-light;
+  }
+  .content-footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    .content-shared {
+      display: flex;
+      align-items: center;
+      h5 {
+        margin-right: 10px;
+        color: $secondart-blue-light;
+      }
+    }
+    .content-icons {
+      display: flex;
+      margin: 10px 0;
+      p {
+        font-size: 20px;
+        transition: all .4s ease;
+        i {
+          margin: 0 5px;
+        }
+      &:hover {
+        color: $main-blue;
+      }
+      }
+
+    }
+
   }
 }
 
@@ -253,7 +285,7 @@
   height: 30px;
   width: 200px;
   padding: 7px 0;
-  background-color: $main-blue;
+  background-color: $pastel-gray;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;
   font: 700 15px/1 $headers-font;
