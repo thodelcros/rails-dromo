@@ -71,6 +71,14 @@
 .horizontal-card {
   position: relative;
   transition: all .4s ease;
+  &:hover {
+    a {
+      span {
+        box-shadow:inset 0px 0px 0px 3px $main-orange;
+        background-color: white;
+      }
+    }
+  }
 }
 
 .h-card-image {
@@ -96,10 +104,9 @@
   height: 230px;
   width: 100%;
   span{
-    color: $pastel-gray;
-    font-weight: lighter;
+    color: $main-blue;
+    background-color: $main-orange;
     border-radius: 50%;
-    border: 1px solid $pastel-gray;
     font-size: 12px;
     padding: 10px;
     padding-right: 15px;
@@ -125,6 +132,10 @@
   justify-content: space-between;
   padding-bottom: 20px;
   padding-right: 7px;
+  a {
+    text-decoration: none !important;
+    cursor: pointer;
+  }
   h5 {
     font-style: normal;
     font-weight: bold;

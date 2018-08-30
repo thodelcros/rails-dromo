@@ -469,8 +469,8 @@ function renderMap(drawRouteFlag) {
       centerLink.addEventListener('click', (event) => {
         let markerIndex = Array.prototype.indexOf.call(centerLinks, centerLink);
         let marker = markers[markerIndex];
+        console.log(markers);
         map.setCenter(marker.lat, marker.lng);
-        map.setZoom(10);
       });
     });
 
