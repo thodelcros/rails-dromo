@@ -438,6 +438,83 @@ Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-
 Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-6/concepcion3.jpeg")), step: step3)
 
 
+puts "Creating second itinary for user #{thomas.name}..."
+
+
+itinerary7 = Itinerary.create!(
+  owner: thomas,
+  duration_in_days: 120,
+  country: 'Brazil',
+  transportation: 'bus',
+  start_date: Date.new(2018, 06, 27),
+  crew: 'friends',
+  shared: false
+)
+
+step1 = Step.create!(
+  itinerary: itinerary7,
+  title: 'Amazing cultural city',
+  description: 'Salvador is a multicultural place, with an amazing background culture and history. The best place to discover brazilian typical food!',
+  category: 'food',
+  city: 'Salvador',
+  rating: 4
+)
+
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/salvadore.jpeg")), step: step1)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/salvadore2.jpeg")), step: step1)
+
+step2 = Step.create!(
+  itinerary: itinerary7,
+  title: 'Golden Coast day',
+  description: 'Very close from Salvador culturally but as interesting. We were just passing there to meet our friend Octavio and had amazing time there discovering all hidden spots around',
+  category: 'nature',
+  city: 'Recife',
+  rating: 3
+)
+
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/recife-1.jpeg")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/recife-2.jpeg")), step: step2)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/recife-3.jpeg")), step: step2)
+
+step3 = Step.create!(
+  itinerary: itinerary7,
+  title: 'Wild jungle city',
+  description: 'An immersive experience in the amazonian jungle. This place is the beyond one of the wildest in Brazil. It was amazing!',
+  category: 'nature',
+  city: 'Manaus',
+  rating: 5
+)
+
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/manaus-1.jpeg")), step: step3)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/manaus-2.jpeg")), step: step3)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/manaus-3.jpeg")), step: step3)
+
+step4 = Step.create!(
+  itinerary: itinerary7,
+  title: 'International place',
+  description: 'We stayed there only few days and I can\'t say that it was really interesting. I don\'t really recommand it unless you want to enjoy an European way of life',
+  category: 'housing',
+  city: 'Sao Paulo',
+  rating: 2
+)
+
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/sao-1.jpeg")), step: step4)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/sao-2.jpeg")), step: step4)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/sao-3.jpeg")), step: step4)
+
+step5 = Step.create!(
+  itinerary: itinerary7,
+  title: 'Paradisiac island !',
+  description: 'After Sao Paulo, we just needed wildlife again and Ilha Grande is clearly the good spot for that. Despite it is full of tourist, you still can hide yourself in lost trails and enjoy wonderful ventage points',
+  category: 'vantage point',
+  city: 'Ilha Grande',
+  rating: 5
+)
+
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/ilha-2.jpeg")), step: step5)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/ilha-3.jpeg")), step: step5)
+Photo.create(picture: File.open(Rails.root.join("db/fixtures/pictures/itinerary-7/ilha-4.jpeg")), step: step5)
+
 puts "All done !"
 
 
