@@ -9,8 +9,10 @@
     </div>
     <div id='new_point' class="edit-step-search-bar-container">
       <%= simple_form_for (["owner", @itinerary, @step]) do |f| %>
+
         <%= f.input :city, placeholder: 'Choose a city' %>
-        <%= f.submit class:'h-button' %>
+        <%= f.submit class:'edit-step-button' %>
+
       <% end %>
     </div>
     <div class="edit-step-content-main">
