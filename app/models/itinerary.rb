@@ -6,6 +6,6 @@ class Itinerary < ApplicationRecord
   has_many :steps, dependent: :destroy
 
   enumerize :category,       in: ['solo', 'couple', 'friends', 'family']
-  enumerize :crew,           in: ['solo', 'couple', 'family', 'friend']
+  enumerize :crew,           in: ['solo', 'couple', 'family', 'friends']
   enumerize :transportation, in: ['car', 'bus', 'plane', 'boat', 'hitchhiking', 'motorbike', 'train']
 end
