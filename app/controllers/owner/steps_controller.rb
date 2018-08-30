@@ -15,6 +15,13 @@ class Owner::StepsController < ApplicationController
     redirect_to edit_owner_itinerary_path(step.itinerary)
   end
 
+  def destroy
+    step = Step.find(params[:id])
+    step.destroy
+
+    redirect_to edit_owner_itinerary_path(step.itinerary)
+  end
+
   private
 
   def set_itinerary
