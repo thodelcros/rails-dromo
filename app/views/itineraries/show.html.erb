@@ -20,7 +20,7 @@
           </div>
         </div>
 
-        <% @itinerary.steps.each_with_index do |step, index| %>
+        <% @steps.each_with_index do |step, index| %>
           <div class="h-card-container"style="height: 255px;">
             <div class="horizontal-card">
               <div class="h-card-image" style="background-image: url('<%= cl_image_path step.photos.first.picture %>')">
