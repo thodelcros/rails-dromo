@@ -36,18 +36,20 @@
                 <p><%= step.description.truncate(100) %></p>
                 <% if user_signed_in? %>
                   <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
-                  <% if found_favorite_for_step  %>
-                    <div class="h-card-icons">
-                      <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
-                        <i class="fas fa-heart heart"></i>
-                      <% end %>
-                    </div>
-                  <% else %>
-                    <div class="h-card-icons">
-                      <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
-                        <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
-                      <% end %>
-                    </div>
+                  <% unless current_user == @itinerary.owner %>
+                    <% if found_favorite_for_step %>
+                      <div class="h-card-icons">
+                        <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
+                          <i class="fas fa-heart heart"></i>
+                        <% end %>
+                      </div>
+                    <% else %>
+                      <div class="h-card-icons">
+                        <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
+                          <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
+                        <% end %>
+                      </div>
+                    <% end %>
                   <% end %>
                 <% else %>
                   <div class="h-card-icons">
