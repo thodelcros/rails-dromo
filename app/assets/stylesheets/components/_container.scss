@@ -361,6 +361,16 @@
   }
 }
 
+#save:hover {
+  background-color: $main-blue !important;
+  height: 50px;
+  transition: 0.4s;
+  a {
+    color: white !important;
+    transition: 0.4s;
+  }
+}
+
 
 // EDIT STEP FORM RIGHT
 .edit-step-form-main-container {
