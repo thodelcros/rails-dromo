@@ -19,11 +19,10 @@
       <% @steps.each_with_index do |step, index| %>
         <div class="edit-step-content">
           <span><%= index + 1 %></span>
-          <span id="points" class="js-point" data-step-id="<%= step.id %>"><%= step.city.capitalize %></span>
+          <span id="points" class="js-point" data-step-id="<%= step.id %>"><%= step.city.capitalize.split(",")[0] %></span>
           <%= link_to owner_itinerary_step_path(@itinerary, step), method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
-          <i class="<%= icon_by_category(step.category) %> category"></i>
         </div>
       <% end %>
     </div>
