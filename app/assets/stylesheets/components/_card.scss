@@ -1,3 +1,8 @@
+.cards {
+  padding: 0 20px;
+}
+
+
 .card-main-container {
   display: flex;
   flex-direction: column;
@@ -70,6 +75,8 @@
 
 .card-content {
   text-align: center;
+  width: 100%;
+  padding: 0 30px;
   p {
     // font-weight: lighter;
     color: $main-orange;
@@ -90,10 +97,46 @@
     text-align: center;
     color: $secondart-blue-light;
   }
+  .content-footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    .content-shared {
+      display: flex;
+      align-items: center;
+      h5 {
+        margin-right: 10px;
+        color: $secondart-blue-light;
+      }
+    }
+    .content-icons {
+      display: flex;
+      margin: 10px 0;
+      p {
+        font-size: 20px;
+        transition: all .4s ease;
+        i {
+          margin: 0 5px;
+        }
+      &:hover {
+        color: $main-blue;
+      }
+      }
+
+    }
+
+  }
+}
+
+.card-info-container {
+  position: relative;
 }
 
 .card-info {
   position: absolute;
+  top: 25px;
+  right: -10px;
   background-color: white;
   display: flex;
   border-radius: 34px;
@@ -115,14 +158,11 @@
   }
 }
 
-.card-info, .card-info-right {
-  right: 20px;
-  top: 60px;
-}
-
 .card-info-right {
   color: white;
   position: absolute;
+  top: 25px;
+  right: -18px;
   display: flex;
   background-color: $main-blue;
   border-radius: 34px;
@@ -140,6 +180,35 @@
   }
   i {
     font-size: 14px;
+  }
+}
+
+.card-create-container {
+  color: $main-orange;
+  margin: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 50px;
+  top: 25px;
+  border-radius: 34px;
+  height: 250px;
+  transition: all .2s ease;
+  h1 {
+    margin: 0;
+    color: $main-orange;
+  }
+  h3 {
+    color: $pastel-gray;
+  }
+  &:hover {
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.10);
+    transform: scale(1.1);
+  }
+  a:hover, a:focus {
+  text-decoration: none;
   }
 }
 
@@ -185,15 +254,19 @@
 }
 
 
-.ribbon-shared {
+.ribbon-shared, .ribbon-pending {
   width: 150px;
   height: 150px;
   overflow: hidden;
   position: absolute;
 }
 
+
 .ribbon-shared::before,
-.ribbon-shared::after {
+.ribbon-shared::after,
+.ribbon-pending::before,
+.ribbon-pending::after
+ {
   position: absolute;
   z-index: -1;
   content: '';
@@ -203,12 +276,13 @@
 .ribbon-shared span {
   position: absolute;
   display: block;
-  width: 225px;
-  padding: 15px 0;
+  height: 30px;
+  width: 200px;
+  padding: 7px 0;
   background-color: $main-orange;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;
-  font: 700 18px/1 $headers-font;
+  font: 700 15px/1 $headers-font;
   text-transform: uppercase;
   text-align: center;
 }
@@ -216,12 +290,13 @@
 .ribbon-pending span {
   position: absolute;
   display: block;
-  width: 225px;
-  padding: 15px 0;
-  background-color: $main-blue;
+  height: 30px;
+  width: 200px;
+  padding: 7px 0;
+  background-color: $pastel-gray;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;
-  font: 700 18px/1 $headers-font;
+  font: 700 15px/1 $headers-font;
   text-transform: uppercase;
   text-align: center;
 }
@@ -245,8 +320,8 @@
   left: 0;
 }
 .ribbon-top-left-corner span {
-  right: -25px;
-  top: 30px;
+  right: -14px;
+  top: 47px;
   transform: rotate(-45deg);
 }
 

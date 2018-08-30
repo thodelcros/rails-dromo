@@ -4,9 +4,9 @@ class ItinerariesController < ApplicationController
 
   def index
     if params[:query].present?
-      @itineraries = Itinerary.where("country ILIKE ?", "%#{params[:query]}%")
+      @itineraries = Itinerary.where("country ILIKE ?", "%#{params[:query]}%").where(shared: true)
     else
-      @itineraries = Itinerary.all
+      @itineraries = Itinerary.where(shared: true)
     end
   end
 

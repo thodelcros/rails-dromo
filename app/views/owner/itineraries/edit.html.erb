@@ -1,0 +1,53 @@
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag 'mapWithRoutes' %>
+<% end %>
+
+<div id="map-wrapper">
+  <div
+    id="map"
+    style="width: 100%;
+    height: 100vh;"
+    data-markers="<%= @markers.to_json %>"
+  ></div>
+
+  <%= render "shared/edit-step-form" %>
+
+  <% @steps.each do |step| %>
+    <div data-step-id="<%= step.id %>" class="edit-step-form-main-container hidden">
+      <div class="edit-step-form">
+        <div class="edit-step-info">
+          <div class="edit-step-form-header">
+            <%= image_tag "flags/#{@itinerary.country.downcase}.png" %>
+            <h4><%= step.city %></h4>
+          </div>
+          <%= simple_form_for (["owner", @itinerary, step]) do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :title %>
+            <%= f.input :description %>
+            <div class="edit-step-form-category-rating-content">
+              <%= f.input :category %>
+              <%= f.input :rating, as: :select, collection: 1..5 %>
+              <%= f.submit 'Edit', class:'edit-button' %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="edit-step-dropzone">
+          <%= simple_form_for [:owner, step, @photo], html: { class: "dropzone", id: "dropzone-#{step.id}" } do |f| %>
+            <div class="fallback">
+              <input type="file" multiple name="photos[]">
+            </div>
+          <% end %>
+        </div>
+      </div>
+        <div class="edit-step-photos">
+          <% step.photos.with_picture.take(5).each do |photo| %>
+            <%= cl_image_tag photo.picture %>
+            <%= link_to 'Delete', owner_photo_path(photo), method: :delete, remote: true %>
+          <% end %>
+        </div>
+
+    </div>
+  <% end %>
+
+</div>

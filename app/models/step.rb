@@ -6,7 +6,9 @@ class Step < ApplicationRecord
   extend Enumerize
 
   belongs_to :itinerary
-  has_many :photos
+  has_many :photos, dependent: :destroy
+
+  # accepts_nested_attributes_for :photos
 
   enumerize :category, in: ['food', 'nature', 'sport', 'party', 'housing', 'vantage point']
 

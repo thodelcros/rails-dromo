@@ -15,6 +15,9 @@
 .header-buttons {
   display: flex;
   margin-top: 150px;
+  a {
+    text-decoration: none !important;
+  }
   .button-create {
     margin-right: 20px;
   }

@@ -1,5 +1,25 @@
-<div class="create-main-container">
-  <div class="create-form-main-container">
-    <h3>Steps</h3>
+<div class="create-itinerary-main-container">
+
+  <div class="create-itinerary-header">
+    <%= link_to owner_itineraries_path, class:'arrow-back-home' do %>
+      <i class="fas fa-arrow-left"></i>
+    <% end %>
+    <h4>New Itinerary</h4>
+    <%= cl_image_tag @owner.photo, alt: "Avatar" %>
   </div>
+  <div class="create-itinerary-content-form">
+    <%= simple_form_for ["owner", @itinerary] do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :country %>
+      <%= f.input :duration_in_days %>
+      <div class="create-itinerary-date">
+        <%= f.input :start_date %>
+      </div>
+      <div class="create-itinerary-transport-crew">
+        <%= f.input :transportation %>
+        <%= f.input :crew %>
+      </div>
+    </div>
+    <%= f.submit "Create", method: :post , class:'create-itinerary-footer' %>
+  <% end %>
 </div>

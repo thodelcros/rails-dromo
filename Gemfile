@@ -10,6 +10,7 @@ gem 'rails', '5.2.1'
 gem 'redis'
 
 gem "geocoder"
+gem "jquery-slick-rails"
 
 gem 'enumerize'
 
@@ -23,6 +24,7 @@ gem 'webpacker'
 
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem 'country_select'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
