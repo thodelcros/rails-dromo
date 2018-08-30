@@ -46,6 +46,13 @@
   width: 160px;
   padding-left: 30px;
   margin-bottom: 30px;
+  background-color: transparent;
+  outline: none;
+    input:focus {
+    outline:none;
+    border: none;
+    box-shadow: none;
+  }
 }
 
 .search-content-three {
@@ -59,6 +66,13 @@
   height:60px;
   padding-left: 30px;
   margin-bottom: 30px;
+  outline: none;
+  background-color: transparent;
+    input:focus {
+    outline:none;
+    border: none;
+    box-shadow: none;
+  }
 }
 
 
