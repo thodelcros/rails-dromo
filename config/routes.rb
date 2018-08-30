@@ -20,7 +20,7 @@
     end
 
     resources :steps, only: [] do
-      resources :photos, only: [:create]
+      resources :photos, only: [:index, :create]
     end
 
     resources :photos, only: [:destroy]

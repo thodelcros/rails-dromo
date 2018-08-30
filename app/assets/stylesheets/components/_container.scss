@@ -625,7 +625,15 @@
   }
 }
 
-
+.dz-remove {
+  background-color: $ivory;
+  color: $main-blue;
+  transition: 0.4s;
+  &:hover {
+    color: $main-orange;
+    transition: 0.4s;
+  }
+}
 .index-header-content {
   padding-left: 78px;
   padding-top: 67px;
