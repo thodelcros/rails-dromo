@@ -3,12 +3,22 @@ class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: [:show]
 
   def index
+    @itineraries = Itinerary.where(shared: true)
     if params[:query].present?
-      @itineraries = Itinerary.where("country ILIKE ?", "%#{params[:query]}%").where(shared: true)
-      @tag_line = "Itineraries in #{@itineraries.first.country.capitalize}"
-    else
-      @itineraries = Itinerary.where(shared: true)
-      @tag_line = "Discover all itineraries"
+      @itineraries = @itineraries.where("country ILIKE ?", "%#{params[:query]}%")
+    end
+
+    if params[:duration].present? and params[:duration] != "" and params[:duration] != "all"
+      case params[:duration]
+      when "1-7"
+        @itineraries = @itineraries.where("duration_in_days <= 7")
+      when "8-14"
+        @itineraries = @itineraries.where("8 <= duration_in_days").where("duration_in_days <= 14")
+      when "15-30"
+        @itineraries = @itineraries.where("15 <= duration_in_days").where("duration_in_days <= 30")
+      when "30+"
+        @itineraries = @itineraries.where("30 <= duration_in_days")
+      end
     end
   end
 
