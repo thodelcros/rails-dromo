@@ -28,7 +28,7 @@
                 <% if itinerary.steps.first && itinerary.steps.first.photos.first %>
                   <img class="img-responsive" src="<%= cl_image_path itinerary.steps.first.photos.first.picture %>" alt="">
                 <% else %>
-                  <%= image_tag "terre.jpg", class: "img-responsive" %>
+                  <%= image_tag "default-image.svg", class: "img-responsive" %>
                 <% end %>
                 <% if itinerary.shared %>
                   <div class="overlay">
