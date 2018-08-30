@@ -16,3 +16,6 @@ imagesSlides();
 
 import { initDropzones } from '../components/picturesDropzone';
 initDropzones();
+
+import { autocomplete } from '../components/autocomplete';
+autocomplete();
