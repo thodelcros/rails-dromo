@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   transition: all .5s ease;
+  border: none !important;
   p {
     font-family: $headers-font;
     color: white;
@@ -28,6 +29,7 @@
 
 #orange {
   background-color: $main-orange;
+  border: none !important;
 }
 
 .colors-inversed {
@@ -174,5 +176,26 @@
     i {
       color: $main-blue;
     }
+  }
+}
+
+
+.edit-step-button {
+  border: none;
+  background-color: white;
+  color: $main-orange;
+  width: 130px;
+  height: 45px;
+  transition: 0.4s;
+  font-size: 18px;
+  border-radius: 45px;
+  &:hover {
+    background-color: $main-orange;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    box-shadow: 0px 15px 20px rgba(240, 162, 2, 0.4);
+    cursor: pointer;
   }
 }

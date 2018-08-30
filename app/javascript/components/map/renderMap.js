@@ -410,7 +410,7 @@ function renderMap(drawRouteFlag) {
       map.setZoom(2);
     } else if (markers.length === 1) {
       map.setCenter(markers[0].lat, markers[0].lng);
-      map.setZoom(14);
+      map.setZoom(7);
     } else {
       map.fitLatLngBounds(markers);
     }
@@ -469,8 +469,8 @@ function renderMap(drawRouteFlag) {
       centerLink.addEventListener('click', (event) => {
         let markerIndex = Array.prototype.indexOf.call(centerLinks, centerLink);
         let marker = markers[markerIndex];
+        console.log(markers);
         map.setCenter(marker.lat, marker.lng);
-        map.setZoom(10);
       });
     });
 
