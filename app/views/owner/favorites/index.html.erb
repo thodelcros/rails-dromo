@@ -17,7 +17,7 @@
       <%= link_to country_owner_favorites_path(name: country) do %>
         <div class="col-xs-12 col-sm-3">
           <div class="favorite-card">
-            <%= image_tag "flags/#{country.downcase}", alt: "#{country.downcase}-flag", width: 70 %>
+            <%= image_tag "flags/#{country.downcase}.png", alt: "#{country.downcase}-flag", width: 70 %>
             <h4><%= country %></h4>
             <p><%= pluralize(favorites.count, 'favorite', 'favorites') %></p>
           </div>
