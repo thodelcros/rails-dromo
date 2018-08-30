@@ -17,7 +17,7 @@
       <div class="edit-step-form">
         <div class="edit-step-info">
           <div class="edit-step-form-header">
-            <%= image_tag "flags/#{@itinerary.country.downcase}.png" %>
+            <%= image_tag "flags/#{@itinerary.country.parameterize}.png" %>
             <h4><%= step.city %></h4>
           </div>
           <%= simple_form_for (["owner", @itinerary, step]) do |f| %>
