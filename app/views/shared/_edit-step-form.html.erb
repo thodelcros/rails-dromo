@@ -10,7 +10,7 @@
     <div id='new_point' class="edit-step-search-bar-container">
       <%= simple_form_for (["owner", @itinerary, @step]) do |f| %>
         <%= f.input :city, placeholder: 'Choose a city' %>
-        <%= f.submit class:'edit-button' %>
+        <%= f.submit class:'h-button' %>
       <% end %>
     </div>
     <div class="edit-step-content-main">
@@ -26,8 +26,10 @@
       <% end %>
     </div>
     <div class="edit-step-footer-container">
-      <div class="edit-step-footer-container-links">
+      <div class="edit-step-footer-link">
         <%= link_to 'Save', owner_itineraries_path %>
+      </div>
+      <div class="edit-step-footer-link">
         <%= link_to 'Publish', share_owner_itinerary_path(@itinerary), method: :patch %>
       </div>
     </div>
