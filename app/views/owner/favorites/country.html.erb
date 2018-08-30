@@ -11,7 +11,7 @@
           <div class="title-container">
 
             <h2><span style="font-weight: lighter;">Favorites in </span><span style="font-weight: bold;"><%= @country %></span></h2>
-            <%= image_tag "#{@country.downcase}.svg", alt: @country %>
+            <%= image_tag "#{@country.parameterize}.svg", alt: @country %>
 
             <div class="title-container-info">
               <p><i class="fas fa-map-marker-alt" style="color: #5D6A80"></i> <span style="color: #F0A202; font-weight: bold; font-size: 20px;"><%= @steps.count %></span> <%= "step".pluralize(@steps.count) %> from <span style="color: #F0A202; font-weight: bold; font-size: 20px;"><%= @itineraries.count %></span> <%= "itinerary".pluralize(@itineraries.count) %></p>

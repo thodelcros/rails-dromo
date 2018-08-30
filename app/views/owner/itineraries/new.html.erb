@@ -10,7 +10,7 @@
   <div class="create-itinerary-content-form">
     <%= simple_form_for ["owner", @itinerary] do |f| %>
       <%= f.error_notification %>
-      <%= f.input :country %>
+      <%= f.input :country, as: :select, collection: Itinerary.country.options, input_html: { class: 'select2' }, label: false, prompt: 'Choose a country' %>
       <%= f.input :duration_in_days %>
       <div class="create-itinerary-date">
         <%= f.input :start_date %>

@@ -5,8 +5,10 @@ class ItinerariesController < ApplicationController
   def index
     if params[:query].present?
       @itineraries = Itinerary.where("country ILIKE ?", "%#{params[:query]}%").where(shared: true)
+      @tag_line = "Itineraries in #{@itineraries.first.country.capitalize}"
     else
       @itineraries = Itinerary.where(shared: true)
+      @tag_line = "Discover all itineraries"
     end
   end
 
