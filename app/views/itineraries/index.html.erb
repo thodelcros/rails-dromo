@@ -1,42 +1,34 @@
 <div class="container-white">
   <%= render 'shared/navbar-home' %>
-  <% if @itineraries.empty? %>
     <div class="index-header-content">
-      <h3 style="margin-left: 15px; margin-bottom: 30px;" >No itineraries yet in this country, be the first to post one 😀 </h3>
 
+    <% if @itineraries.empty? %>
       <div class='cloud'></div>
       <div class="cloud_two"></div>
-
-      <%= form_tag itineraries_path, method: :get do %>
-        <div class="search-module">
-          <div class="search-bar-main-container">
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control search-bar-index search-content",
-              placeholder: "Type a country"
-            %>
-            <%= button_tag type: "submit", id: "index-go", class:'button-dromo-index' do %>
-              Search
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-  <% else %>
-    <div class="index-header-content">
+      <h3 style="margin-left: 15px; margin-bottom: 30px;" >No itineraries yet in this country, be the first to post one 😀 </h3>
+    <% else %>
       <h1 style="font-weight: bolder; margin-left: 15px"> Itineraries in <%= @itineraries.first.country.capitalize %></h1>
        <div class='cloud'></div>
         <div class="cloud_two"></div>
-      <h2 style="margin-bottom: 90px; color:#CDCDCD; margin-left: 15px">Collect experiences and tips from real travelers !</h2>
+      <h2 style="margin-bottom: 90px; color:#CDCDCD; margin-left: 15px">Collect experiences and tips from real travelers!</h2>
+    <% end %>
+
 
       <%= form_tag itineraries_path, method: :get do %>
         <div class="search-module">
           <div class="search-bar-main-container">
+            <i class="fas fa-search"></i>
             <%= text_field_tag :query,
               params[:query],
-              class: "form-control search-bar-index search-content",
-              placeholder: "Type a country"
+              class: "form-control-override search-bar-index search-content",
+              placeholder: "Choose a country", autocomplete:"off"
+            %>
+             <i class="far fa-hourglass"></i>
+
+             <%= select_tag :duration,
+              options_for_select([["All", "all"], ["1-7 days", "1-7"], ["8-14 days", "8-14"], ["15-30 days", "15-30"], ["30 days +", "30+"]], params[:duration]),
+              class: "form-control-override select2 search-bar-index search-content-two",
+              placeholder: "Duration"
             %>
             <%= button_tag type: "submit", id: "index-go", class:'button-dromo-index' do %>
               Search
@@ -45,38 +37,11 @@
         </div>
       <% end %>
     </div>
-  <% end %>
   <div class="row" style="margin-top: 40px">
     <div class="cards">
       <% @itineraries.each do |itinerary| %>
         <div class="col-xs-12 col-md-4">
-          <div class="card-main-container">
-            <div class="card-info-container">
-              <div class="card-info-right">
-                <i class="<%= icon_by_crew(itinerary.crew) %> crew"></i>
-              <p><%= itinerary.crew %></p>
-              </div>
-              <div class="card-info">
-                <i class="far fa-clock"></i>
-                <p><%= get_duration(itinerary.duration_in_days) %></p>
-              </div>
-              <div class="hovereffect card-image">
-                <img class="img-responsive" src="<%= cl_image_path itinerary.steps.first.photos.first.picture %>" alt="">
-                <div class="overlay">
-                </div>
-              </div>
-            </div>
-            <div class="card-btn">
-              <%= link_to itinerary_path(itinerary) do %>
-                Discover <i class="fas fa-arrow-right"></i>
-              <% end %>
-            </div>
-            <div class="card-content">
-              <h3><%= itinerary.country %></h3>
-              <h6><i class="fas fa-map-pin"></i> <%= itinerary.steps.count %> steps</h6>
-              <p>by <%= itinerary.owner.name %></p>
-            </div>
-          </div>
+          <%= render 'shared/card-main-container', itinerary: itinerary %>
         </div>
       <% end %>
     </div>

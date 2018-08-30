@@ -19,7 +19,7 @@
             <%= text_field_tag :query,
               params[:query],
               id: "search-input",
-              placeholder: "Type a country"
+              placeholder: "Choose a country", autocomplete:"off"
             %>
           <% end %>
           <button class="button-dromo" id="orange">
@@ -39,33 +39,7 @@
       <div class="row">
         <% @latest_itineraries.each do |itinerary| %>
           <div class="col-xs-12 col-md-4 col-sm-6">
-            <div class="card-main-container">
-              <div class="card-info-container">
-                <div class="card-info-right">
-                  <i class="<%= icon_by_crew(itinerary.crew) %> crew"></i>
-                <p><%= itinerary.crew %></p>
-                </div>
-                <div class="card-info">
-                  <i class="far fa-clock"></i>
-                  <p><%= get_duration(itinerary.duration_in_days) %></p>
-                </div>
-                <div class="hovereffect card-image">
-                  <img class="img-responsive" src="<%= cl_image_path itinerary.steps.first.photos.first.picture %>" alt="">
-                  <div class="overlay">
-                  </div>
-                </div>
-              </div>
-              <div class="card-btn">
-                <%= link_to itinerary_path(itinerary) do %>
-                  Discover <i class="fas fa-arrow-right"></i>
-                <% end %>
-              </div>
-              <div class="card-content">
-                <h3><%= itinerary.country %></h3>
-                <h6><i class="fas fa-map-pin"></i> <%= itinerary.steps.count %> steps</h6>
-                <p>by <%= itinerary.owner.name %></p>
-              </div>
-            </div>
+            <%= render 'shared/card-main-container', itinerary: itinerary %>
           </div>
         <% end %>
       </div>

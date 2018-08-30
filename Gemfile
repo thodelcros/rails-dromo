@@ -10,6 +10,7 @@ gem 'rails', '5.2.1'
 gem 'redis'
 
 gem "geocoder"
+gem "jquery-slick-rails"
 
 gem 'enumerize'
 

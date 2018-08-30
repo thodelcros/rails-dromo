@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import "bootstrap";
+import '../components/select2';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
@@ -15,3 +16,6 @@ imagesSlides();
 
 import { initDropzones } from '../components/picturesDropzone';
 initDropzones();
+
+import { autocomplete } from '../components/autocomplete';
+autocomplete();

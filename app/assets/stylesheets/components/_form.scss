@@ -61,6 +61,21 @@
   }
 }
 
+// .form-control-override {
+//     display: block;
+//     // font-style: normal;
+//     height: 59px;
+//     padding: 6px 22px;
+//     font-size: 18px;
+//     line-height: 1.428571429;
+//     color: #000000;
+//     background-color: #fff;
+//     background-image: none;
+//     border: 1px solid #ccc;
+//     border-radius: 2px;
+//     /* box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); */
+//     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+
 // CREATE ITINERARY
 .create-form-header {
   display: flex;
@@ -107,3 +122,29 @@
 .create-form-bottom {
   background-color: $light-gray;
 }
+
+
+#select2-itinerary_country-container {
+  font-family: $headers-font !important;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

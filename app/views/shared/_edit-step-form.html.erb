@@ -9,8 +9,10 @@
     </div>
     <div id='new_point' class="edit-step-search-bar-container">
       <%= simple_form_for (["owner", @itinerary, @step]) do |f| %>
-        <%= f.input :city %>
+
+        <%= f.input :city, placeholder: 'Choose a city' %>
         <%= f.submit class:'edit-step-button' %>
+
       <% end %>
     </div>
     <div class="edit-step-content-main">
@@ -18,13 +20,18 @@
         <div class="edit-step-content">
           <span><%= index + 1 %></span>
           <span id="points" class="js-point" data-step-id="<%= step.id %>"><%= step.city.capitalize %></span>
+          <%= link_to owner_itinerary_step_path(@itinerary, step), method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
           <i class="<%= icon_by_category(step.category) %> category"></i>
         </div>
       <% end %>
     </div>
     <div class="edit-step-footer-container">
-      <div class="edit-step-footer-container-links">
+      <div class="edit-step-footer-link">
         <%= link_to 'Save', owner_itineraries_path %>
+      </div>
+      <div class="edit-step-footer-link">
         <%= link_to 'Publish', share_owner_itinerary_path(@itinerary), method: :patch %>
       </div>
     </div>
