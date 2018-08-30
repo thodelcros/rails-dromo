@@ -26,9 +26,8 @@
              <i class="far fa-hourglass"></i>
 
              <%= select_tag :duration,
-              options_for_select([["All", "all"], ["1-7 days", "1-7"], ["8-14 days", "8-14"], ["15-30 days", "15-30"], ["30 days +", "30+"]], params[:duration]),
-              class: "form-control-override select2 search-bar-index search-content-two",
-              placeholder: "Duration"
+              options_for_select([["All"], ["1-7 days", "1-7"], ["8-14 days", "8-14"], ["15-30 days", "15-30"], ["30 days +", "30+"]], params[:duration]),
+              class: "form-control-override search-bar-index search-content-two"
             %>
             <%= button_tag type: "submit", id: "index-go", class:'button-dromo-index' do %>
               Search
