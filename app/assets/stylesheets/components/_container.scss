@@ -293,8 +293,12 @@
   display: flex;
   justify-content: space-between;
   margin: 20px;
+  .js-point {
+    width: 300px;
+  }
   span {
     font-size: 15px;
+    text-align: center;
     color: $main-blue;
     transition: 0.3s;
     &:hover {
@@ -305,6 +309,13 @@
   }
   i {
     font-size: 1.1em;
+  }
+  a {
+    display: block;
+    color: $pastel-gray;
+    &:hover {
+      color: $main-blue;
+    }
   }
 }
 
@@ -616,6 +627,6 @@
 
 
 .index-header-content {
-  padding-left: 63px;
+  padding-left: 78px;
   padding-top: 67px;
 }

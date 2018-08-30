@@ -10,7 +10,7 @@
       <div class="col-xs-12">
         <div class="title-container">
             <h2><%= @itinerary.country.capitalize %></h2>
-            <%= image_tag "flags/#{@itinerary.country.downcase}.png", alt: @itinerary.country %>
+            <%= image_tag "flags/#{@itinerary.country.parameterize}.png", alt: @itinerary.country %>
           <div class="title-container-info">
             <p><i class="<%= icon_by_crew(@itinerary.crew) %> crew"></i> <%= @itinerary.crew %></p>
             <p><i class="fas fa-map-marker-alt"></i> <%= @itinerary_nbr_step %></p>
@@ -27,7 +27,9 @@
               </div>
               <div class="h-card-content">
                 <div class="content-header">
-                  <span><%= index + 1 %></span>
+                  <a data-center-step-id="<%= step.id %>" class="center-link">
+                    <span><%= index + 1 %></span>
+                  </a>
                   <h5><%= step.title.truncate(20) %></h5>
                   <i class="<%= icon_by_category(step.category) %> category"></i>
                 </div>
@@ -36,14 +38,12 @@
                   <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
                   <% if found_favorite_for_step  %>
                     <div class="h-card-icons">
-                      <a data-center-step-id="<%= step.id %>" class="center-link"><i class="fas fa-map-pin" title="Click to see on map"></i></a>
                       <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
                         <i class="fas fa-heart heart"></i>
                       <% end %>
                     </div>
                   <% else %>
                     <div class="h-card-icons">
-                      <a data-center-step-id="<%= step.id %>" class="center-link"><i class="fas fa-map-pin" title="Click to see on map"></i></a>
                       <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
                         <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
                       <% end %>
@@ -51,7 +51,6 @@
                   <% end %>
                 <% else %>
                   <div class="h-card-icons">
-                    <a data-center-step-id="<%= step.id %>" class="center-link"><i class="fas fa-map-pin" title="Click to see on map"></i></a>
                     <%= link_to new_user_session_path do %>
                       <i class="far fa-heart heart"></i>
                     <% end %>

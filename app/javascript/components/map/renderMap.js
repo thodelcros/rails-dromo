@@ -410,7 +410,7 @@ function renderMap(drawRouteFlag) {
       map.setZoom(2);
     } else if (markers.length === 1) {
       map.setCenter(markers[0].lat, markers[0].lng);
-      map.setZoom(14);
+      map.setZoom(7);
     } else {
       map.fitLatLngBounds(markers);
     }
@@ -433,23 +433,23 @@ function renderMap(drawRouteFlag) {
     let stepCards = document.querySelectorAll('.horizontal-card');
     let centerLinks = document.querySelectorAll(".center-link");
 
+    if (stepCards.length > 0) {
+      mapMarkers.forEach((marker) => {
+        marker.addListener('mouseover', function() {
+          let stepCardIndex = Array.prototype.indexOf.call(mapMarkers, marker);
+          let stepCard      = stepCards[stepCardIndex];
 
-    mapMarkers.forEach((marker) => {
-      marker.addListener('mouseover', function() {
-        let stepCardIndex = Array.prototype.indexOf.call(mapMarkers, marker);
-        let stepCard      = stepCards[stepCardIndex];
+          stepCard.classList.add('card-hovered');
+        });
 
-        stepCard.classList.add('card-hovered');
+        marker.addListener('mouseout', function() {
+          let stepCardIndex = Array.prototype.indexOf.call(mapMarkers, marker);
+          let stepCard      = stepCards[stepCardIndex];
+
+          stepCard.classList.remove('card-hovered');
+        });
       });
-
-      marker.addListener('mouseout', function() {
-        let stepCardIndex = Array.prototype.indexOf.call(mapMarkers, marker);
-        let stepCard      = stepCards[stepCardIndex];
-
-        stepCard.classList.remove('card-hovered');
-      });
-    });
-
+    }
 
     stepCards.forEach((stepCard) => {
       stepCard.addEventListener('mouseenter', (event) => {
@@ -469,8 +469,8 @@ function renderMap(drawRouteFlag) {
       centerLink.addEventListener('click', (event) => {
         let markerIndex = Array.prototype.indexOf.call(centerLinks, centerLink);
         let marker = markers[markerIndex];
+        console.log(markers);
         map.setCenter(marker.lat, marker.lng);
-        map.setZoom(10);
       });
     });
 

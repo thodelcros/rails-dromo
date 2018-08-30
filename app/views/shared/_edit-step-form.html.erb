@@ -9,7 +9,7 @@
     </div>
     <div id='new_point' class="edit-step-search-bar-container">
       <%= simple_form_for (["owner", @itinerary, @step]) do |f| %>
-        <%= f.input :city %>
+        <%= f.input :city, placeholder: 'Choose a city' %>
         <%= f.submit class:'h-button' %>
       <% end %>
     </div>
@@ -18,6 +18,9 @@
         <div class="edit-step-content">
           <span><%= index + 1 %></span>
           <span id="points" class="js-point" data-step-id="<%= step.id %>"><%= step.city.capitalize %></span>
+          <%= link_to owner_itinerary_step_path(@itinerary, step), method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
           <i class="<%= icon_by_category(step.category) %> category"></i>
         </div>
       <% end %>

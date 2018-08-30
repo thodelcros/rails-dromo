@@ -25,7 +25,7 @@ module ApplicationHelper
       "solo" => "fas fa-child",
       "family" => "fas fa-users",
       "couple" => "fas fa-people-carry",
-      "friend" => "fas fa-users"
+      "friends" => "fas fa-users"
     }
 
     return icon_by_crew[crew]
@@ -33,7 +33,7 @@ module ApplicationHelper
 
   def icon_by_transportation(transportation)
     icon_by_transportation = {
-      "car" => "fas fa-car-side",
+      "car" => "fas fa-car",
       "bus" => "fas fa-bus",
       "plane" => "fas fa-plane-departure",
       "boat" => "fas fa-ship",
