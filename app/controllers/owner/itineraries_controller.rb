@@ -17,8 +17,14 @@ class Owner::ItinerariesController < ApplicationController
 
   def share
     @itinerary = Itinerary.find(params[:id])
-
     @itinerary.update(shared: true)
+
+    redirect_to owner_itineraries_path
+  end
+
+  def unshare
+    @itinerary = Itinerary.find(params[:id])
+    @itinerary.update(shared: false)
 
     redirect_to owner_itineraries_path
   end

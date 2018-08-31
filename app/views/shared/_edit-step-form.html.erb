@@ -31,7 +31,11 @@
         <%= link_to 'Save', owner_itineraries_path %>
       </div>
       <div class="edit-step-footer-link">
-        <%= link_to 'Publish', share_owner_itinerary_path(@itinerary), method: :patch %>
+        <% if @itinerary.shared? %>
+          <%= link_to 'Unpublish', unshare_owner_itinerary_path(@itinerary), method: :patch %>
+        <% else %>
+          <%= link_to 'Publish', share_owner_itinerary_path(@itinerary), method: :patch %>
+        <% end %>
       </div>
     </div>
   </div>

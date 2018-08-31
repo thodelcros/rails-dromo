@@ -14,6 +14,7 @@
     resources :itineraries do
       member do
         patch :share
+        patch :unshare
       end
 
       resources :steps, only: [:create, :update, :destroy]

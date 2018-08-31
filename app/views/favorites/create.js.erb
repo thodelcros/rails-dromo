@@ -4,15 +4,16 @@
 //   - url: /steps/:step_id/favorites -> /favorites/:id
 //   - icon: coeur vide -> plein
 
-var favoriteCreationLink = document.querySelector("[data-step-id='<%= @step.id %>']");
+var favoriteCreationLinks = document.querySelectorAll("[data-step-id='<%= @step.id %>']");
 
-favoriteCreationLink.setAttribute('data-method', 'delete');
-favoriteCreationLink.setAttribute('href', '<%= favorite_path(@favorite) %>');
+favoriteCreationLinks.forEach((link) => {
+  link.setAttribute('data-method', 'delete');
+  link.setAttribute('href', '<%= favorite_path(@favorite) %>');
 
+  const iconTag = link.getElementsByTagName('i')[0];
 
-var iconTag = favoriteCreationLink.getElementsByTagName('i')[0];
-
-iconTag.classList = "";
-iconTag.classList.add("fas");
-iconTag.classList.add("fa-heart");
-iconTag.classList.add("heart");
+  iconTag.classList = "";
+  iconTag.classList.add("fas");
+  iconTag.classList.add("fa-heart");
+  iconTag.classList.add("heart");
+});

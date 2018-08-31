@@ -46,7 +46,7 @@
                     <% else %>
                       <div class="h-card-icons">
                         <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
-                          <i class="far fa-heart heart" data-step-id="<%= step.id %>"></i>
+                          <i class="far fa-heart heart"></i>
                         <% end %>
                       </div>
                     <% end %>

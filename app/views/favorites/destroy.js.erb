@@ -4,14 +4,16 @@
 //   - url: /favorites/:id -> /steps/:step_id/favorites
 //   - icon: coeur plein -> vide
 
-var favoriteDestroyLink = document.querySelector("[data-step-id='<%= @step.id %>']");
+var favoriteDestroyLinks = document.querySelectorAll("[data-step-id='<%= @step.id %>']");
 
-favoriteDestroyLink.setAttribute('data-method', 'post');
-favoriteDestroyLink.setAttribute('href', '<%= step_favorites_path(@step) %>');
+favoriteDestroyLinks.forEach((link) => {
+  link.setAttribute('data-method', 'post');
+  link.setAttribute('href', '<%= step_favorites_path(@step) %>');
 
-var iconTag = favoriteDestroyLink.getElementsByTagName('i')[0];
+  const iconTag = link.getElementsByTagName('i')[0];
 
-iconTag.classList = "";
-iconTag.classList.add("far");
-iconTag.classList.add("fa-heart");
-iconTag.classList.add("heart");
+  iconTag.classList = "";
+  iconTag.classList.add("far");
+  iconTag.classList.add("fa-heart");
+  iconTag.classList.add("heart");
+});

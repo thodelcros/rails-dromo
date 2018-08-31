@@ -12,18 +12,20 @@
         <h4><%= step.title %></h4>
         <% if user_signed_in? %>
           <% found_favorite_for_step = current_user.favorites.find { |favorite| favorite.step_id == step.id } %>
-          <% if found_favorite_for_step  %>
-            <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
-              <i class="fas fa-heart heart-modal"></i>
-            <% end %>
-          <% else %>
-            <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
-              <i class="far fa-heart heart-modal" data-step-id="<%= step.id %>"></i>
+          <% unless current_user == @itinerary.owner %>
+            <% if found_favorite_for_step %>
+              <%= link_to favorite_path(found_favorite_for_step), method: :delete, remote: true, data: { step_id: step.id} do %>
+                <i class="fas fa-heart heart"></i>
+              <% end %>
+            <% else %>
+              <%= link_to step_favorites_path(step), method: :post, remote: true, data: { step_id: step.id } do %>
+                <i class="far fa-heart heart"></i>
+              <% end %>
             <% end %>
           <% end %>
         <% else %>
           <%= link_to new_user_session_path do %>
-            <i class="far fa-heart heart-modal"></i>
+            <i class="far fa-heart heart"></i>
           <% end %>
         <% end %>
       </div>
